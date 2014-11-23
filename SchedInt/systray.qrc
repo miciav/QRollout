@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/trash.svg</file>
+        <file>Resources/bat.png</file>
+        <file>Resources/clock.png</file>
+        <file>Resources/fedora_evolve.png</file>
+        <file>Resources/folder.png</file>
+        <file>Resources/folder_favourite.png</file>
+        <file>Resources/folder_home.png</file>
+        <file>Resources/gpu_official.png</file>
+        <file>Resources/launch4.png</file>
+        <file>Resources/paintbrush.png</file>
+        <file>Resources/spray.png</file>
+        <file>Resources/zip_truck.png</file>
+        <file>Resources/clock.svg</file>
+        <file>Resources/config.svg</file>
+        <file>Resources/dolphin.svg</file>
+        <file>Resources/hiber-suspend-reboot.svg</file>
+        <file>Resources/kjots.svg</file>
+        <file>Resources/klipper.svg</file>
+        <file>Resources/kmenuedit.svg</file>
+        <file>Resources/knews.svg</file>
+        <file>Resources/konsole.svg</file>
+        <file>Resources/korganizer.svg</file>
+        <file>Resources/korganizer_todo.svg</file>
+        <file>Resources/ksysguard.svg</file>
+        <file>Resources/kwin.svg</file>
+        <file>Resources/redo-undo.svg</file>
+        <file>Resources/redo.svg</file>
+        <file>Resources/playes.svg</file>
+        <file>Resources/window.svg</file>
+        <file>Resources/window2.svg</file>
+        <file>Resources/exec.png</file>
+        <file>Resources/Broom_icon.png</file>
+    </qresource>
+</RCC>

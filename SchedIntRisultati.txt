@@ -1,0 +1,1325 @@
+/home/michele2/Dropbox/Progetti/GeneralMDI/inst_lim/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/inst_lim/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.001	1
+	0,000	3	17587	23629	287	1	force = 0	|
+0,000	0,000	3	17587	23629	287	1			|
+0,000	0,000	3	17587	23629	287	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.002	1
+	0,000	3	17772	23564	289	1	force = 0	|
+0,000	0,000	3	17772	23564	289	1			|
+0,000	0,010	3	17772	23564	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.003	1
+	0,000	3	16261	23420	297	1	force = 0	|
+0,000	0,000	3	16261	23420	297	1			|
+0,000	0,010	3	16261	23420	297	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.004	1
+	0,000	3	17590	23519	292	1	force = 0	|
+0,000	0,000	3	17590	23519	292	1			|
+0,000	0,010	3	17590	23519	292	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.005	1
+	0,000	3	16487	23473	289	1	force = 0	|
+0,000	0,000	3	16487	23473	289	1			|
+0,000	0,010	3	16487	23473	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.001	1
+	0,010	3	17807	23397	264	1	force = 0	|
+0,000	0,010	3	17807	23397	264	1			|
+0,000	0,010	3	17807	23397	264	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.002	1
+	0,000	3	17880	23420	267	1	force = 0	|
+0,000	0,000	3	17880	23420	267	1			|
+0,000	0,010	3	17880	23420	267	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.003	1
+	0,010	3	16443	23232	268	1	force = 0	|
+0,000	0,010	3	16443	23232	268	1			|
+0,000	0,010	3	16443	23232	268	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.004	1
+	0,000	3	16491	22918	247	1	force = 0	|
+0,000	0,000	3	16491	22918	247	1			|
+0,000	0,010	3	16491	22918	247	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.005	1
+	0,000	3	16355	23483	285	1	force = 0	|
+0,000	0,000	3	16355	23483	285	1			|
+0,000	0,010	3	16355	23483	285	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.001	1
+	0,000	3	16474	23046	255	1	force = 0	|
+0,000	0,000	3	16474	23046	255	1			|
+0,000	0,010	3	16474	23046	255	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.002	1
+	0,000	3	16168	22645	227	1	force = 0	|
+0,000	0,000	3	16168	22645	227	1			|
+0,000	0,010	3	16168	22645	227	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.003	1
+	0,000	3	16207	22823	252	1	force = 0	|
+0,000	0,000	3	16207	22823	252	1			|
+0,000	0,000	3	16207	22823	252	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.004	1
+	0,000	3	17587	23084	241	1	force = 0	|
+0,000	0,000	3	17587	23084	241	1			|
+0,000	0,010	3	17587	23084	241	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.005	1
+	0,000	3	16169	22729	229	1	force = 0	|
+0,000	0,000	3	16169	22729	229	1			|
+0,000	0,000	3	16169	22729	229	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.001	1
+	0,000	3	17587	23629	287	1	force = 0	|
+0,000	0,000	3	17587	23629	287	1			|
+0,000	0,000	3	17587	23629	287	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.002	1
+	0,000	3	17772	23564	289	1	force = 0	|
+0,000	0,000	3	17772	23564	289	1			|
+0,000	0,010	3	17772	23564	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.003	1
+	0,000	3	16261	23420	297	1	force = 0	|
+0,000	0,000	3	16261	23420	297	1			|
+0,000	0,010	3	16261	23420	297	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.004	1
+	0,000	3	17590	23519	292	1	force = 0	|
+0,000	0,000	3	17590	23519	292	1			|
+0,000	0,000	3	17590	23519	292	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.005	1
+	0,000	3	16487	23473	289	1	force = 0	|
+0,000	0,000	3	16487	23473	289	1			|
+0,000	0,010	3	16487	23473	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.001	1
+	0,000	3	17807	23397	264	1	force = 0	|
+0,000	0,000	3	17807	23397	264	1			|
+0,000	0,010	3	17807	23397	264	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.002	1
+	0,010	3	17880	23420	267	1	force = 0	|
+0,000	0,010	3	17880	23420	267	1			|
+0,000	0,010	3	17880	23420	267	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.003	1
+	0,000	3	16443	23232	268	1	force = 0	|
+0,000	0,000	3	16443	23232	268	1			|
+0,000	0,010	3	16443	23232	268	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.004	1
+	0,000	3	16491	22918	247	1	force = 0	|
+0,000	0,000	3	16491	22918	247	1			|
+0,000	0,010	3	16491	22918	247	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.005	1
+	0,000	3	16355	23483	285	1	force = 0	|
+0,000	0,000	3	16355	23483	285	1			|
+0,000	0,010	3	16355	23483	285	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.001	1
+	0,000	3	16474	23046	255	1	force = 0	|
+0,000	0,000	3	16474	23046	255	1			|
+0,000	0,000	3	16474	23046	255	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.002	1
+	0,000	3	16168	22645	227	1	force = 0	|
+0,000	0,000	3	16168	22645	227	1			|
+0,000	0,010	3	16168	22645	227	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.003	1
+	0,000	3	16207	22823	252	1	force = 0	|
+0,000	0,000	3	16207	22823	252	1			|
+0,000	0,000	3	16207	22823	252	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.004	1
+	0,010	3	17587	23084	241	1	force = 0	|
+0,000	0,010	3	17587	23084	241	1			|
+0,000	0,010	3	17587	23084	241	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.005	1
+	0,000	3	16169	22729	229	1	force = 0	|
+0,000	0,000	3	16169	22729	229	1			|
+0,000	0,000	3	16169	22729	229	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,010	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,010	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.001	1
+	0,000	3	17587	23629	287	1	force = 0	|
+0,000	0,000	3	17587	23629	287	1			|
+0,000	0,010	3	17587	23629	287	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.002	1
+	1,000	3	17772	23564	289	1	force = 0	|
+0,000	1,000	3	17772	23564	289	1			|
+0,000	1,010	3	17772	23564	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.003	1
+	0,000	3	16261	23420	297	1	force = 0	|
+0,000	0,000	3	16261	23420	297	1			|
+0,000	0,010	3	16261	23420	297	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.004	1
+	1,000	3	17590	23519	292	1	force = 0	|
+0,000	1,000	3	17590	23519	292	1			|
+0,000	1,000	3	17590	23519	292	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.005	1
+	1,000	3	16487	23473	289	1	force = 0	|
+0,000	1,000	3	16487	23473	289	1			|
+0,000	1,000	3	16487	23473	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.001	1
+	1,000	3	17807	23397	264	1	force = 0	|
+0,000	1,000	3	17807	23397	264	1			|
+0,000	1,010	3	17807	23397	264	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.002	1
+	1,000	3	17880	23420	267	1	force = 0	|
+0,000	1,000	3	17880	23420	267	1			|
+10000,000	1,010	3	17880	23420	267	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.003	1
+	0,000	3	16443	23232	268	1	force = 0	|
+0,000	0,000	3	16443	23232	268	1			|
+0,000	0,000	3	16443	23232	268	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.004	1
+	1,000	3	16491	22918	247	1	force = 0	|
+0,000	1,000	3	16491	22918	247	1			|
+0,000	1,010	3	16491	22918	247	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.005	1
+	1,000	3	16355	23483	285	1	force = 0	|
+0,000	1,000	3	16355	23483	285	1			|
+0,000	1,010	3	16355	23483	285	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.001	1
+	1,000	3	16474	23046	255	1	force = 0	|
+0,000	1,000	3	16474	23046	255	1			|
+0,000	1,000	3	16474	23046	255	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.002	1
+	1,000	3	16168	22645	227	1	force = 0	|
+0,000	1,000	3	16168	22645	227	1			|
+0,000	1,010	3	16168	22645	227	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.003	1
+	1,000	3	16207	22823	252	1	force = 0	|
+0,000	1,000	3	16207	22823	252	1			|
+0,000	1,010	3	16207	22823	252	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.004	1
+	1,000	3	17587	23084	241	1	force = 0	|
+0,000	1,000	3	17587	23084	241	1			|
+0,000	1,000	3	17587	23084	241	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.005	1
+	1,000	3	16169	22729	229	1	force = 0	|
+0,000	1,000	3	16169	22729	229	1			|
+0,000	1,010	3	16169	22729	229	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 1	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 1	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	1,000	2	18290	29386	38	1	force = 1	|
+0,000	1,000	2	18290	29386	38	1			|
+0,000	1,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 1	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 1	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	1,000	2	19842	30934	39	1	force = 1	|
+0,000	1,000	2	19842	30934	39	1			|
+0,000	1,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 1	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 1	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 1	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 1	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 1	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 1	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 1	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 1	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 1	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,010	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 1	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 1	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 1	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 1	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 1	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 1	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	1,000	2	16728	29792	40	1	force = 1	|
+0,000	1,000	2	16728	29792	40	1			|
+0,000	1,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 1	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 1	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 1	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 1	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 1	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 1	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 1	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 1	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	0
+	2,000	2	6672	23712	12	0	force = 1	|
+0,000	2,000	2	6672	23712	12	0			|
+0,000	2,000	2	6672	23712	12	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	0
+	3,000	2	6672	23712	12	0	force = 1	|
+0,000	3,000	2	6672	23712	12	0			|
+0,000	3,000	2	6672	23712	12	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	0
+	2,000	2	6331	23371	18	0	force = 1	|
+0,000	2,000	2	6331	23371	18	0			|
+0,000	2,000	2	6331	23371	18	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	0
+	1,000	2	8212	25252	23	0	force = 1	|
+0,000	1,000	2	8212	25252	23	0			|
+0,000	1,000	2	8212	25252	23	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	0
+	2,000	2	8949	25989	37	0	force = 1	|
+0,000	2,000	2	8949	25989	37	0			|
+0,000	2,000	2	8949	25989	37	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	0
+	2,000	2	9979	27019	40	0	force = 1	|
+0,000	2,000	2	9979	27019	40	0			|
+0,000	2,010	2	9979	27019	40	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	0
+	2,000	2	7314	24354	41	0	force = 1	|
+0,000	2,000	2	7314	24354	41	0			|
+0,000	2,000	2	7314	24354	41	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	0
+	2,000	2	5386	22426	7	0	force = 1	|
+0,000	2,000	2	5386	22426	7	0			|
+0,000	2,000	2	5386	22426	7	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	2,000	2	10054	24689	21	1	force = 1	|
+0,000	2,000	2	10054	24689	21	1			|
+0,000	2,010	2	10054	24689	21	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	0
+	2,000	2	5534	22574	19	0	force = 1	|
+0,000	2,000	2	5534	22574	19	0			|
+0,000	2,000	2	5534	22574	19	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	2,000	2	5225	21954	9	1	force = 1	|
+0,000	2,000	2	5225	21954	9	1			|
+0,000	2,000	2	5225	21954	9	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	0
+	0,000	2	4110	21150	10	0	force = 1	|
+0,000	0,000	2	4110	21150	10	0			|
+0,000	0,000	2	4110	21150	10	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	0
+	1,000	2	924	16534	2	0	force = 1	|
+0,000	1,000	2	924	16534	2	0			|
+0,000	1,000	2	924	16534	2	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	0
+	0,000	2	4276	21316	6	0	force = 1	|
+0,000	0,000	2	4276	21316	6	0			|
+0,000	0,000	2	4276	21316	6	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	0
+	1,000	2	918	15571	2	0	force = 1	|
+0,000	1,000	2	918	15571	2	0			|
+0,000	1,000	2	918	15571	2	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	0
+	0,000	2	8668	23195	16	0	force = 1	|
+0,000	0,000	2	8668	23195	16	0			|
+0,000	0,000	2	8668	23195	16	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	0
+	2,000	2	6331	23371	18	0	force = 1	|
+0,000	2,000	2	6331	23371	18	0			|
+0,000	2,000	2	6331	23371	18	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	0
+	1,000	2	8212	25252	23	0	force = 1	|
+0,000	1,000	2	8212	25252	23	0			|
+0,000	1,000	2	8212	25252	23	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	0
+	2,000	2	8949	25989	37	0	force = 1	|
+0,000	2,000	2	8949	25989	37	0			|
+0,000	2,000	2	8949	25989	37	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	0
+	1,000	2	9979	27019	40	0	force = 1	|
+0,000	1,000	2	9979	27019	40	0			|
+0,000	1,000	2	9979	27019	40	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	8688	25728	15	1	force = 0	|
+0,000	0,000	2	8688	25728	15	1			|
+0,000	0,000	2	8688	25728	15	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	0
+	0,000	2	8546	25586	28	0	force = 0	|
+0,000	0,000	2	8546	25586	28	0			|
+0,000	0,000	2	8546	25586	28	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	0
+	1,000	2	7650	24690	26	0	force = 0	|
+0,000	1,000	2	7650	24690	26	0			|
+0,000	1,000	2	7650	24690	26	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	0
+	0,000	2	9514	26554	50	0	force = 0	|
+0,000	0,000	2	9514	26554	50	0			|
+0,000	0,000	2	9514	26554	50	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	0
+	0,000	2	9284	26324	40	0	force = 0	|
+0,000	0,000	2	9284	26324	40	0			|
+0,000	0,000	2	9284	26324	40	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	0
+	1,000	2	7791	24831	41	0	force = 0	|
+0,000	1,000	2	7791	24831	41	0			|
+0,000	1,000	2	7791	24831	41	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	0
+	0,000	2	6800	23840	18	0	force = 0	|
+0,000	0,000	2	6800	23840	18	0			|
+0,000	0,000	2	6800	23840	18	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	9435	24307	18	1	force = 0	|
+0,000	0,000	2	9435	24307	18	1			|
+0,000	0,000	2	9435	24307	18	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	0
+	0,000	2	5534	22574	19	0	force = 0	|
+0,000	0,000	2	5534	22574	19	0			|
+0,000	0,000	2	5534	22574	19	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	0
+	0,000	2	5852	22892	10	0	force = 0	|
+0,000	0,000	2	5852	22892	10	0			|
+0,000	0,000	2	5852	22892	10	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	0
+	0,000	2	4110	21150	9	0	force = 0	|
+0,000	0,000	2	4110	21150	9	0			|
+0,000	0,000	2	4110	21150	9	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	0
+	0,000	2	924	16534	2	0	force = 0	|
+0,000	0,000	2	924	16534	2	0			|
+0,000	0,000	2	924	16534	2	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	0
+	0,000	2	4276	21316	6	0	force = 0	|
+0,000	0,000	2	4276	21316	6	0			|
+0,000	0,000	2	4276	21316	6	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	0
+	0,000	2	918	16640	2	0	force = 0	|
+0,000	0,000	2	918	16640	2	0			|
+0,000	0,000	2	918	16640	2	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	0
+	0,000	2	7672	22267	15	0	force = 0	|
+0,000	0,000	2	7672	22267	15	0			|
+0,000	0,000	2	7672	22267	15	0			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,010	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,010	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16878	30652	37	1			|
+0,000	0,000	2	16878	30652	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	15264	28368	38	1			|
+0,000	0,000	2	15264	28368	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29386	38	1			|
+0,000	0,000	2	18290	29386	38	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	16750	29069	37	1			|
+0,000	0,000	2	16750	29069	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31266	45	1			|
+0,000	0,000	2	18574	31266	45	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30934	39	1			|
+0,000	0,000	2	19842	30934	39	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29792	40	1			|
+0,000	0,000	2	16728	29792	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17481	28089	34	1			|
+0,000	0,000	2	17481	28089	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26600	28	1			|
+0,000	0,000	2	15686	26600	28	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29506	40	1			|
+0,000	0,000	2	15874	29506	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25293	25	1			|
+0,000	0,000	2	14515	25293	25	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	23	1			|
+0,000	0,000	2	13755	24292	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	15322	24941	23	1			|
+0,000	0,000	2	15322	24941	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11319	23081	22	1			|
+0,000	0,000	2	11319	23081	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12908	25568	24	1			|
+0,000	0,000	2	12908	25568	24	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,010	0,010	2	16184	30108	35	1			|
+0,000	0,010	2	16184	29647	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	14533	27577	38	1			|
+0,000	0,010	2	14533	27173	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,010	0,010	2	18290	29227	36	1			|
+0,000	0,010	2	18290	28787	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,010	0,010	2	15579	28481	32	1			|
+0,000	0,010	2	15579	27903	30	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,010	0,010	2	18574	31206	45	1			|
+0,000	0,010	2	18574	30769	44	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30904	38	1			|
+0,000	0,000	2	19842	30367	35	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,000	0,000	2	16728	29732	40	1			|
+0,000	0,000	2	16728	29732	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17295	27903	34	1			|
+0,000	0,000	2	17295	27621	33	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26570	26	1			|
+0,000	0,000	2	15686	26011	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29476	36	1			|
+0,000	0,000	2	15874	28818	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25263	24	1			|
+0,000	0,000	2	14515	24847	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	21	1			|
+0,000	0,000	2	13755	23671	19	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	14137	24543	23	1			|
+0,000	0,000	2	14137	24173	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,000	2	11319	23081	22	1	force = 0	|
+0,000	0,000	2	11086	22554	22	1			|
+0,000	0,000	2	11086	21946	20	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12288	25508	22	1			|
+0,000	0,000	2	12288	25012	20	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.001	1
+	0,000	3	17587	23629	287	1	force = 0	|
+0,240	0,240	3	17577	23629	287	1			|
+0,000	0,250	3	17577	23603	287	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.002	1
+	0,000	3	17772	23564	289	1	force = 0	|
+0,500	0,500	3	17694	23514	289	1			|
+0,000	0,510	3	17694	23512	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.003	1
+	0,000	3	16261	23420	297	1	force = 0	|
+0,470	0,470	3	16261	23420	297	1			|
+0,000	0,480	3	16261	23333	297	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.004	1
+	0,000	3	17590	23519	292	1	force = 0	|
+0,410	0,410	3	17585	23519	292	1			|
+0,000	0,420	3	17585	23434	292	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.005	1
+	0,000	3	16487	23473	289	1	force = 0	|
+0,500	0,500	3	16450	23424	289	1			|
+10000,000	0,510	3	16450	23421	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.001	1
+	0,000	3	17807	23397	264	1	force = 0	|
+0,290	0,290	3	17789	23363	264	1			|
+0,000	0,300	3	17789	23338	264	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.002	1
+	0,000	3	17880	23420	267	1	force = 0	|
+0,180	0,180	3	17875	23386	267	1			|
+0,000	0,190	3	17875	23386	267	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.003	1
+	0,000	3	16443	23232	268	1	force = 0	|
+0,190	0,190	3	16426	23232	268	1			|
+10000,000	0,200	3	16426	23169	268	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.004	1
+	0,000	3	16491	22918	247	1	force = 0	|
+0,250	0,250	3	16491	22918	247	1			|
+0,000	0,250	3	16491	22886	247	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.005	1
+	0,000	3	16355	23483	285	1	force = 0	|
+0,150	0,150	3	16343	23439	285	1			|
+0,000	0,160	3	16343	23407	285	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.001	1
+	0,000	3	16474	23046	255	1	force = 0	|
+0,340	0,340	3	16436	22993	255	1			|
+0,000	0,340	3	16436	22942	255	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.002	1
+	0,000	3	16168	22645	227	1	force = 0	|
+0,130	0,130	3	16168	22645	227	1			|
+0,000	0,140	3	16168	22642	227	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.003	1
+	0,010	3	16207	22823	252	1	force = 0	|
+0,150	0,160	3	16203	22812	252	1			|
+0,000	0,170	3	16203	22812	252	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.004	1
+	0,000	3	17587	23084	241	1	force = 0	|
+0,150	0,150	3	17587	23084	241	1			|
+0,000	0,160	3	17587	23067	241	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.005	1
+	0,000	3	16169	22729	229	1	force = 0	|
+0,250	0,250	3	16146	22634	229	1			|
+0,000	0,260	3	16146	22565	229	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.001	1
+	0,000	2	16878	30652	37	1	force = 0	|
+0,000	0,000	2	16184	30108	35	1			|
+0,000	0,000	2	16184	29647	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.002	1
+	0,000	2	15264	28368	38	1	force = 0	|
+0,000	0,000	2	14533	27577	38	1			|
+0,000	0,000	2	14533	27173	37	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.003	1
+	0,000	2	18290	29386	38	1	force = 0	|
+0,000	0,000	2	18290	29227	36	1			|
+0,000	0,000	2	18290	28787	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.004	1
+	0,000	2	16750	29069	37	1	force = 0	|
+0,000	0,000	2	15579	28481	32	1			|
+0,000	0,000	2	15579	27903	30	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_08.005	1
+	0,000	2	18574	31266	45	1	force = 0	|
+0,000	0,000	2	18574	31206	45	1			|
+0,000	0,000	2	18574	30769	44	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.001	1
+	0,000	2	19842	30934	39	1	force = 0	|
+0,000	0,000	2	19842	30904	38	1			|
+0,000	0,010	2	19842	30367	35	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.002	1
+	0,000	2	16728	29792	40	1	force = 0	|
+0,010	0,010	2	16728	29732	40	1			|
+0,000	0,010	2	16728	29732	40	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.003	1
+	0,000	2	17481	28089	34	1	force = 0	|
+0,000	0,000	2	17295	27903	34	1			|
+0,000	0,000	2	17295	27621	33	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.004	1
+	0,000	2	15686	26600	28	1	force = 0	|
+0,000	0,000	2	15686	26570	26	1			|
+0,000	0,000	2	15686	26011	23	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_09.005	1
+	0,000	2	15874	29506	40	1	force = 0	|
+0,000	0,000	2	15874	29476	36	1			|
+0,000	0,000	2	15874	28818	34	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.001	1
+	0,000	2	14515	25293	25	1	force = 0	|
+0,000	0,000	2	14515	25263	24	1			|
+0,000	0,000	2	14515	24847	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.002	1
+	0,000	2	13755	24292	23	1	force = 0	|
+0,000	0,000	2	13755	24292	21	1			|
+0,000	0,000	2	13755	23671	19	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.003	1
+	0,000	2	15322	24941	23	1	force = 0	|
+0,000	0,000	2	14137	24543	23	1			|
+0,000	0,000	2	14137	24173	22	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.004	1
+	0,010	2	11319	23081	22	1	force = 0	|
+0,000	0,010	2	11086	22554	22	1			|
+0,000	0,010	2	11086	21946	20	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/2m/istanza_condl_2m_10.005	1
+	0,000	2	12908	25568	24	1	force = 0	|
+0,000	0,000	2	12288	25508	22	1			|
+0,000	0,000	2	12288	25012	20	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.001	1
+	0,000	3	17587	23629	287	1	force = 0	|
+0,240	0,240	3	17577	23629	287	1			|
+0,000	0,250	3	17577	23603	287	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.002	1
+	0,000	3	17772	23564	289	1	force = 0	|
+0,510	0,510	3	17694	23514	289	1			|
+0,000	0,510	3	17694	23512	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.003	1
+	0,000	3	16261	23420	297	1	force = 0	|
+0,480	0,480	3	16261	23420	297	1			|
+10000,000	0,490	3	16261	23333	297	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.004	1
+	0,000	3	17590	23519	292	1	force = 0	|
+0,410	0,410	3	17585	23519	292	1			|
+0,000	0,420	3	17585	23434	292	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_08.005	1
+	0,000	3	16487	23473	289	1	force = 0	|
+0,510	0,510	3	16450	23424	289	1			|
+0,000	0,510	3	16450	23421	289	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.001	1
+	0,000	3	17807	23397	264	1	force = 0	|
+0,290	0,290	3	17789	23363	264	1			|
+0,000	0,300	3	17789	23338	264	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.002	1
+	0,000	3	17880	23420	267	1	force = 0	|
+0,180	0,180	3	17875	23386	267	1			|
+0,000	0,190	3	17875	23386	267	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.003	1
+	0,010	3	16443	23232	268	1	force = 0	|
+0,180	0,190	3	16426	23232	268	1			|
+0,000	0,200	3	16426	23169	268	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.004	1
+	0,000	3	16491	22918	247	1	force = 0	|
+0,240	0,240	3	16491	22918	247	1			|
+0,000	0,250	3	16491	22886	247	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_09.005	1
+	0,000	3	16355	23483	285	1	force = 0	|
+0,150	0,150	3	16343	23439	285	1			|
+0,000	0,160	3	16343	23407	285	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.001	1
+	0,000	3	16474	23046	255	1	force = 0	|
+0,340	0,340	3	16436	22993	255	1			|
+0,000	0,350	3	16436	22942	255	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.002	1
+	0,000	3	16168	22645	227	1	force = 0	|
+0,140	0,140	3	16168	22645	227	1			|
+0,000	0,140	3	16168	22642	227	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.003	1
+	0,000	3	16207	22823	252	1	force = 0	|
+0,160	0,160	3	16203	22812	252	1			|
+0,000	0,160	3	16203	22812	252	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.004	1
+	0,000	3	17587	23084	241	1	force = 0	|
+0,150	0,150	3	17587	23084	241	1			|
+10000,000	0,160	3	17587	23067	241	1			|
+
+/home/michele2/Dropbox/Progetti/GeneralMDI/Istanze_rollout2/1_indisp/con_dl_0.4/3m/istanza_condl_3m_10.005	1
+	0,000	3	16169	22729	229	1	force = 0	|
+0,260	0,260	3	16146	22634	229	1			|
+0,000	0,260	3	16146	22565	229	1			|
+

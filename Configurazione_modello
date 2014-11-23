@@ -1,0 +1,9 @@
+0		//0=Rollout, 1=euristica
+2		//numero euristica singola 0-14 non vale se rollout
+1		//tipo rollout 0-13
+2	 	//euristica per il rollout 0-17 euristiche singole o multiple
+10		// tempo serve solo nel rollout con tempo... inutile.
+risult.txt	//nome file per i risultati
+0		//Force fa la ricerca locale da ogni livello del Rollut
+0		//Politica di Pruning
+1		//Local search mode 0-4 0=niente euristica 1= VNS
