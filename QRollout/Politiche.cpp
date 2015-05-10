@@ -292,12 +292,14 @@ void QRolloutThread::PoliticaLinearSpread(TStruttura_Funz *funzioni, int cont_li
 /*esclude l'euristica peggiore dopo ogni (num_job/num_heur) volte
 * in questo modo negli ultimi stadi resta solo l'euristica migliore
 * faccio il reset delle percentuali d'utilizzo dopo ogni stadio di rollout
+* in pratica ogni volta che elimino una heuristica dalla competizione azzero tutti i contatori
 * la funzione assume un carattere simile a quello del racing (esclusione a confronti)
 */
 void QRolloutThread::PoliticaLinearSpreadReset(TStruttura_Funz *funzioni, int cont_livelli){
     int i, j, tmp, rank[Fnum_Heur], somma=0;
 
-    if ((Fnum_Heur>GNum_Job) || ((GNum_Job-cont_livelli)%(GNum_Job/Fnum_Heur)==0 && (FNum_Heur_Used>1))) {
+    if ((Fnum_Heur > GNum_Job) ||
+            ((GNum_Job - cont_livelli)%(GNum_Job/Fnum_Heur) == 0 && (FNum_Heur_Used>1))) {
         //calcola il ranking
         for (i = 0;i < Fnum_Heur;i++)
         {
