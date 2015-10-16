@@ -23,7 +23,8 @@ SOURCES +=\
     Rollout_Dynamic_Job_Choosing.cpp \
     Rollout_Heuristic_Pruning.cpp \
     Rollout_Dynamic.cpp \
-    Ricerche_Locali.cpp
+    Ricerche_Locali.cpp \
+    euristicheprivate.cpp
 HEADERS += \
     qRolloutThread.h \
     Struct.h \

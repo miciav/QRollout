@@ -25,7 +25,7 @@
 using namespace std;
 
 
-int Heuristics::CalcolaProcTimeMedio(void)
+int Heuristics::CalcolaProcTimeMedioArrayJob(void)
 {
 //     questa funzione calcola il proc. time medio
 
@@ -40,33 +40,19 @@ int Heuristics::CalcolaProcTimeMedio(void)
 
 void Heuristics::InizializzaPermutazioneMigliore(TJob *pPerm)
 {
-    for(int i = 0; i < GNum_Job; i++)
-        pPerm[i] = GArray_Job[i];
+    for(int i = 0; i < GNum_Job; i++) pPerm[i] = GArray_Job[i];
 }
 
 TTipo_New Heuristics::CaricaTempo(TSchedula *pM_sch, TElem *pM)
 {
     TTipo_New temp;
     int fine = 0;
-    while(pM_sch->next != NULL)
-        pM_sch = pM_sch->next;
+    while(pM_sch->next != NULL) pM_sch = pM_sch->next;
 
     fine = pM_sch->fine;
-    while
-            (
-             (pM != NULL)
-             &&
-             (fine > pM->inizio)
-             )
-    {
-        pM = pM->next;
-    }
-    if
-            (
-             (pM == NULL)
-             ||
-             (fine < pM->inizio)
-             )
+    while( (pM != NULL) && (fine > pM->inizio) ) pM = pM->next;
+
+    if( (pM == NULL) || (fine < pM->inizio) )
     {
         temp.fine = fine;
         temp.tipo = pM_sch->tipo;
@@ -79,7 +65,7 @@ TTipo_New Heuristics::CaricaTempo(TSchedula *pM_sch, TElem *pM)
         temp.tipo = pM_sch->tipo;
         temp.Camp = pM_sch->index_camp;
         return temp;
-    }//assumo che nn possano esserci due interruzioni consecutive senza un periodo di attivitï¿½ï¿½?nel mezzo
+    }//assumo che nn possano esserci due interruzioni consecutive senza un periodo di attivita' nel mezzo
 
 }
 /****************************************************************/
@@ -93,28 +79,26 @@ int Heuristics::TrovaEdgeIndisp(TElem *M,int minimum)
     temp = M;
     while(temp->next != NULL)
     {
-        if(temp->inizio > minimum)      return minimum;
-        else if(temp->fine >= minimum)  return temp->fine;
-        else                            temp = temp->next;
+        if (temp->inizio > minimum)      return minimum;
+        else if (temp->fine >= minimum)  return temp->fine;
+        else                             temp = temp->next;
     }
     return minimum;
     // nel caso in cui non ci siano indisponibilita'
     // successive a minimum
-
 }
+
+
 
 int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_locali)
 {
 
-    TTipo_New tempo[3];
-    int tempi_ind[3];
+    TTipo_New* tempo = getStartingTimes(schedule_locali);
     int *disponibilita;
     int disp = 0;
-    int minimum_alternativo2;
     TJob *perm = NULL;
-    TJob pp;
     int i,k,minimum;
-    int minimum_alternativo = 100000;
+    int minimum_alternativo;
     int minimus = 0;
     TElem **indisp = NULL;
     int *deadline_vett = NULL;
@@ -132,14 +116,12 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
     int nothing = -1;
     int fine=0;
     int j = 0;
-    int jj = 0;
     int st_vt = 0;
     int kk;
     int pos_i = 0;
     int pos_k = 0;
     disponibilita = &disp;
-    perm = &pp;
-    indisp              = new TElem*[GNum_Macchine];
+    indisp              = new TElem*[GNum_Macchine]; //array indisponibilita'
     deadline_vett       = new int[dim_job];
     duedate_vett        = new int[dim_job];
     else_vett           = new int[dim_job];
@@ -158,8 +140,7 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
     // 	indisp e' un vettore di puntatori alle liste di indisponibilita' delle macchine
     indisp[0] = GMacch1;
     indisp[1] = GMacch2;
-    if(GNum_Macchine == 3)
-        indisp[2] = GMacch3;
+    if(GNum_Macchine == 3) indisp[2] = GMacch3;
 
     // ___________________________________________________________________________________
     // 	inizializzazione delle strutture dati da utilizzare
@@ -181,143 +162,48 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
         set[i]              = -1;
         tipo_job[i]         = -1;
     }
-    // __________________________________________________________________________________
-
-
-    tempo[0] = CaricaTempo(schedule_locali[0],GMacch1);//carica gli starting time disponibili senza tenere conto dei possibili setup o della durata dei processing time
-    if(GNum_Macchine >= 2)
-        tempo[1] = CaricaTempo(schedule_locali[1],GMacch2);
-
-    if (GNum_Macchine == 3)
-        tempo[2] = CaricaTempo(schedule_locali[2],GMacch3);
 
     // ___________________________________________________________________________________
     // 	ora conosco i tempi minimi di schedulazione sulle singole macchine
     // 	a questo punto devo solo cercare il minimo di questi tempi e dato questo stabilire il set di job con release date
     // 	anteriore a tale data.
 
-    minimum = tempo[0].fine;
-    for (i = 1; i < GNum_Macchine; i++)
-        minimum = min(minimum,tempo[i].fine);
+    minimum = getMinimumScheduleTime(tempo);
 
     //ora conosco il minimo
     //_____________________________________________________________________________________
 
     // 	devo costruire il set dei job released
-    for(i = 0; i < dim_job; i++)// verifico tutti i job uno per uno.
-    {
-        if
-                (
-                 (array_job_locale[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                 &&
-                 (array_job_locale[i].rel_time <= minimum)// se puo' essere schedulato perche' gia' rilasciato
-                 )
-        {
-            array_job_locale[i].adatto = 1;// lo segno come adatto
-            //________________________________________________________________
-            if(array_job_locale[i].deadline > 0) // se ha una deadline
-                deadline_vett[i] = array_job_locale[i].deadline;//salvo le deadline nel vettore delle deadline
-
-            //________________________________________________________________
-
-            if(array_job_locale[i].duedate > 0 && array_job_locale[i].deadline == 0)// se ha "solo" una duedate
-                duedate_vett[i] = array_job_locale[i].duedate;//salvo le duedate nel vettore delle duedate
-
-            //________________________________________________________________
-
-            if(array_job_locale[i].duedate == 0 && array_job_locale[i].deadline == 0)
-            // se non ha ne' duedate ne' deadline
-                else_vett[i] = 1;//salvo la posizione dei job privi di duedate e deadline nel vettore else
-
-        }
-        if
-                (
-                 (array_job_locale[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                 &&
-                 (array_job_locale[i].rel_time <= minimum_alternativo)
-                 )//calcolo un minimo alternativo nel caso non esiste nessun job con rel_date inferione al minimo tempo di schedulazione sulle macchine
-        {
-            minimum_alternativo=array_job_locale[i].rel_time;
-        }
-    }//ora ho segnato i job che posso schedulare xche' rispettano la release date.
+    minimum_alternativo = divideJobs(array_job_locale,dim_job,minimum,deadline_vett,duedate_vett,else_vett);
+   //ora ho segnato i job che posso schedulare xche' rispettano la release date.
 
     // _______________________________________________________________________________________
 
     // 	cerco ora un elemento con deadline != 0;
-    k = -1;
-    for(i = 0;i < dim_job; i++)
-    {
-        if(deadline_vett[i] > 0)
-        {
-            k=i; //cerco il primo elemento con deadline maggiore di 0
-            break;
-        }
-    }
+    k = getElemPosinVett(deadline_vett,dim_job);
 
     //devo cercare il job con il valore + piccolo di deadline
     minimus = 0;
     if(k >= 0)// se ho trovato almeno un elemento con valore di deadline maggiore di 0
     {
-        minimus = deadline_vett[k];
-        for(i = k+1;i < dim_job; i++)
-        {
-            if
-                    (
-                     (deadline_vett[i] != -1)
-                     &&
-                     (deadline_vett[i] < deadline_vett[k])
-                     )
-            {
-                k = i;// salvo la posizione
-                minimus = deadline_vett[k];
-            }
-        }
+        minimus = getMinInVett(k, deadline_vett,dim_job);
         fine = 1;// flag che mi avverte che posso terminare
         deadline = 1;// segno che ho trovato una deadline
     }
     else// se nn ho trovato nessuna deadline cerco le duedate
     {
-        k = -1;
-        for(i = 0;i < dim_job; i++)
-        {
-            if(duedate_vett[i] > 0)
-            {
-                k=i;// ho trovato almeno una duedate
-                break;
-            }
-        }
+        k = getElemPosinVett(duedate_vett,dim_job);
 
         minimus = 0;
         if(k>=0)// se ho trovato almeno una duedate
         {
-            minimus = duedate_vett[k];
-            for(i = k + 1;i < dim_job;i++)
-            {
-                if
-                        (
-                         (duedate_vett[i] != -1)
-                         &&
-                         (duedate_vett[i] < duedate_vett[k])
-                         )
-                {
-                    k=i;// salvo la posizione
-                    minimus = duedate_vett[k];// aggiorno il valore del minimo
-                }
-            }
+            minimus = getMinInVett(k, duedate_vett,dim_job);
             fine = 1;//flag che mi dice che posso terminare la ricerca
             duedate = 1;// ho trovato una duedate
         }
         else //cerco un job privo di duedate e deadline
         {
-            k=-1;
-            for(i=0;i<dim_job;i++)
-            {
-                if(else_vett[i] > 0)
-                {
-                    k=i;// ne ho trovato almeno uno
-                    break;
-                }
-            }
+            k=getElemPosinVett(else_vett,dim_job);
             if(k>=0)//un job qualsiasi va bene
             {
                 fine = 1;
@@ -329,127 +215,35 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
 
     if(fine == 0)//non posso aggiungere job perche' nessun job ha release date inferiore o uguale al minimo tempo disponibile sulle macchine.
     {
-        //  	per ogni macchina verifico che minimum non si trovi in un periodo di
+        //  per ogni macchina verifico che minimum non si trovi in un periodo di
         // 	indisponibilita', nel caso fosse inserisco in tempi_ind il valore
         // 	dell'estremo superiore di tale periodo
-        for(i = 0;i < GNum_Macchine;i++)
-            tempi_ind[i] = TrovaEdgeIndisp(indisp[i],minimum_alternativo);
-        //_____________________________________________________________________________________
-        // 	calcolo adesso il minimo di questi nuovi tempi
-        minimum_alternativo2 = tempi_ind[0];
-        for (i = 1; i < GNum_Macchine; i++)
-        {
-            if(tempi_ind[i]<minimum_alternativo2)
-                minimum_alternativo2 = tempi_ind[i];
+        minimum = updateMachineUnaval(tempo, indisp, minimum_alternativo) ;
 
-        }
-        // _____________________________________________________________________________________
-
-        i = 0;
-        for(i = 0;i < GNum_Macchine;i++)
-            tempo[i].fine = tempi_ind[i];
-
-        minimum = minimum_alternativo2;
-
-        //                 minimum_alternativo=max(minimum_alternativo,minimum_alternativo2);
-        for(i=0; i<dim_job; i++)
-        {
-            if
-                    (
-                     (array_job_locale[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                     &&
-                     (array_job_locale[i].rel_time <= minimum)
-                     )
-            {
-                array_job_locale[i].adatto = 1;
-                // 			_______________________________________________________________
-                if(array_job_locale[i].deadline > 0)
-                    deadline_vett[i] = array_job_locale[i].deadline;//salvo le deadline
-
-                // 			_______________________________________________________________
-                if(array_job_locale[i].duedate > 0 && array_job_locale[i].deadline == 0)
-                    duedate_vett[i] = array_job_locale[i].duedate;//salvo le duedate
-
-                // 			_________________________________________________________________
-                if(array_job_locale[i].duedate == 0 && array_job_locale[i].deadline == 0)
-                    else_vett[i] = 1;//salvo la posizione dei job privi di duedate e deadline
-            }
-        }
+        divideJobs(array_job_locale,dim_job,minimum,deadline_vett,duedate_vett,else_vett);
 
         // come sopra devo individuare il job che deadline o duedate minima
-        k = -1;
-        for(i = 0;i < dim_job; i++)
-        {
-            if(deadline_vett[i] > 0)
-            {
-                k=i;
-                break;
-            }
-        }
+        k = getElemPosinVett(duedate_vett,dim_job);
         minimus = 0;
         if(k >= 0)
         {
-            minimus = deadline_vett[k];
-            // 	ho trovato almeno un elemento che ha deadline > 0
-            for(i=k+1;i<dim_job;i++)
-            {
-                if
-                        (
-                         (deadline_vett[i] != -1)
-                         &&
-                         (deadline_vett[i] < deadline_vett[k])
-                         )
-                {
-                    k=i;// salvo la posizione
-                    minimus = deadline_vett[k];
-                }
-            }
-            fine=1;
+            minimus = getMinInVett(k, deadline_vett,dim_job);
+            fine = 1;
             deadline = 1;// segno che ho trovato una deadline
         }
         else// se nn ho trovato nessuna deadline cerco le duedate
         {
-            k=-1;
-            for(i=0;i<dim_job;i++)
-            {
-                if(duedate_vett[i] > 0)
-                {
-                    k=i;
-                    break;
-                }
-            }
+            k = getElemPosinVett(duedate_vett,dim_job);
             minimus = 0;
             if(k>=0)
             {
-                minimus = duedate_vett[k];
-                // 	ho trovato almeno un elemento che ha duedate > 0 && deadline == 0
-                for(i=k+1;i<dim_job;i++)
-                {
-                    if
-                            (
-                             (duedate_vett[i] != -1)
-                             &&
-                             (duedate_vett[i] < duedate_vett[k])
-                             )
-                    {
-                        k=i;// salvo la posizione
-                        minimus = duedate_vett[k];
-                    }
-                }
-                fine=1;
+                minimus = getMinInVett(k, duedate_vett,dim_job);
+                fine = 1;
                 duedate = 1;
             }
             else //cerco un job privo di duedate e deadline
             {
-                k=-1;
-                for(i=0;i<dim_job;i++)
-                {
-                    if(else_vett[i] > 0)
-                    {
-                        k=i;
-                        break;
-                    }
-                }
+                k=getElemPosinVett(else_vett,dim_job);
                 if(k>=0)
                 {
                     fine = 1;
@@ -464,64 +258,24 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
     {
         if (deadline == 1)
         {//minimus indica il valore + basso della deadline
-            i=0;
-            // 			salvo tutti i job che hanno deadline pari a minimus
-            while(i<dim_job)
-            {
-                if(deadline_vett[i]==minimus)
-                {
-                    set[i] = array_job_locale[i].ID;
-                    tipo_job[i] = array_job_locale[i].tipo;
-
-                }
-                i++;
-            }
-
+            filterJobs(deadline_vett,minimus,array_job_locale,dim_job,set,tipo_job);
         }
         else if (duedate == 1)
         {
             //minimus indica il valore + basso della duedate
-            // 			salvo i job con i valori minimi di duedate
-            i=0;
-            while(i<dim_job)
-            {
-                if(duedate_vett[i]==minimus)
-                {
-                    set[i] = array_job_locale[i].ID;
-                    tipo_job[i] = array_job_locale[i].tipo;
-
-                }
-                i++;
-            }
+            filterJobs(duedate_vett,minimus,array_job_locale,dim_job,set,tipo_job);
         }
         else if (nothing == 1)
         {
             // 			salvo tutti i job che non hanno ne' duedate ne' deadline
-            i=0;
-            while(i<dim_job)
-            {
-                if(else_vett[i]!=-1)
-                {
-                    set[i] = array_job_locale[i].ID;
-                    tipo_job[i] = array_job_locale[i].tipo;
-
-                }
-                i++;
-            }
+            filterJobs(else_vett,array_job_locale,dim_job,set,tipo_job);
         }
         // _________________________________________________________________________________
         // 		per ogni macchina salvo le informazioni sul tipo di job e sullo
         // 		stado della campagna
-        i=0;
-        while(i<GNum_Macchine)
-        {
-            if(tempo[i].fine == minimum)
-            {
-                tipo_macchine[i] = tempo[i].tipo;
-                campagna_macchine[i] = tempo[i].Camp;
-            }
-            i++;
-        }
+
+        updateTipoCampagna(minimum,tipo_macchine,campagna_macchine,tempo);
+
         //__________________________________________________________________________________
 
         for(i=0;i<dim_job;i++)
@@ -542,22 +296,14 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
                         {
                             if(GArray_Tipi[j].ID==tipo_macchine[k])// cerco la campagna massima
                             {
-                                if(campagna_macchine[k]<GArray_Tipi[j].MaxOpCamp)
+                                if(campagna_macchine[k] < GArray_Tipi[j].MaxOpCamp)
                                 {
                                     // 								eureka! posso shedulare questo job immediatamente
                                     // 								la macchina k-esima verra'assegnata al job
-                                    jj=0;
+
+                                    perm = assignJobToPerm(set,i);
                                     st_vt = 0;
                                     setup_vett =&st_vt;
-                                    while(jj<GNum_Job)
-                                    {
-                                        if(GArray_Job[jj].ID == set[i])
-                                        {
-                                            perm[0]=GArray_Job[jj];
-                                            break;
-                                        }
-                                        jj++;
-                                    }
                                     VerificaMacchina(schedule_locali[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                                     Schedula::AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set[i];
@@ -591,19 +337,10 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
                     {
                         if (tipo_macchine[k] == 0)//vuol dire che nn ci sono altri job gia' schedulati
                         {
-                            // 					nn devo pagare setup
-                            jj=0;
+                            // 	nn devo pagare setup
                             st_vt = 0;
                             setup_vett =&st_vt;
-                            while(jj<GNum_Job)
-                            {
-                                if(GArray_Job[jj].ID == set[i])
-                                {
-                                    perm[0]=GArray_Job[jj];
-                                    break;
-                                }
-                                jj++;
-                            }
+                            perm = assignJobToPerm(set,i);
                             VerificaMacchina(schedule_locali[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                             Schedula::AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set[i];
@@ -639,48 +376,12 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
         exit(0);
     }
     // 	 a questo punto ho la matrice dei setup e devo scegliere quello a costo minimo.
-    pos_i = 0;
-    pos_k = 0;
-    for(i=0;i<dim_job;i++)
-    {
-        for(k=0;k<GNum_Macchine;k++)
-        {
-            // 			devo trovare un elemento nn nullo
-            if
-                    (
-                     (setup_matrix[pos_i][pos_k] == -1)
-                     &&
-                     (setup_matrix[i][k]!=-1)
-                     )
-            {
-                pos_i = i;
-                pos_k = k;
-            }
-            if
-                    (
-                     (setup_matrix[i][k]>=0)
-                     &&
-                     (setup_matrix[i][k] < setup_matrix[pos_i][pos_k])
-                     )
-            {
-                pos_i = i;
-                pos_k = k;
-            }
-        }
-    }
+    minMatrix(dim_job,setup_matrix,pos_i,pos_k);
     j=0;
 
     st_vt = 1;
     setup_vett =&st_vt;
-    while(j<GNum_Job)
-    {
-        if(GArray_Job[j].ID == set_matrix[pos_i][pos_k])
-        {
-            perm[0]=GArray_Job[j];
-            break;
-        }
-        j++;
-    }
+    assignJobToPermWithSetup(set_matrix, pos_i,pos_k);
     VerificaMacchina(schedule_locali[pos_k],indisp[pos_k],disponibilita,setup_vett,0,perm,0);
     Schedula::AggiungiSchedula(schedule_locali[pos_k],perm[0],disponibilita[0],setup_vett[0]);
     kk = set_matrix[pos_i][pos_k];
@@ -702,14 +403,11 @@ int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula *
     return kk;
 
 }
-int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
-                          int pDimJob,
-                          TSchedula **pArraySchedule,
-                          int pDelta)
+int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,int pDimJob,TSchedula **pArraySchedule,int pDelta)
 {
     TJob *perm          = NULL;
     TElem **indisp      = NULL;
-    TTipo_New *tempo    = NULL;
+    TTipo_New* tempo = getStartingTimes(pArraySchedule);
     int *disponibilita  = NULL;
     int disp = 0;
     int *deadline_vett  = NULL;
@@ -732,7 +430,7 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     int **set_matrix        = NULL;
     int minimum_alternativo = 100000;
     int tempi_ind[3];
-    int fine;
+    int fine=0;
     int min_deadline;
     int min_duedate;
     int cambio;
@@ -744,7 +442,6 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     int pos_i = 0;
     int pos_k = 0;
 
-    perm                = new TJob;
     indisp              = new TElem*[GNum_Macchine];
     disponibilita       = &disp;
     tempo               = new TTipo_New[GNum_Macchine];
@@ -768,10 +465,8 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     }
 
     indisp[0] = GMacch1;
-    if(GNum_Macchine >= 2)
-        indisp[1] = GMacch2;
-    if(GNum_Macchine == 3)
-        indisp[2] = GMacch3;
+    if(GNum_Macchine >= 2) indisp[1] = GMacch2;
+    if(GNum_Macchine == 3) indisp[2] = GMacch3;
 
     for(i = 0; i < pDimJob; i++)
     {
@@ -796,125 +491,37 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
         tipo_job_nothing[i] = -1;
     }
 
-    tempo[0] = Heuristics::CaricaTempo(pArraySchedule[0],GMacch1);//carica gli starting time disponibili
-    if(GNum_Macchine >= 2)
-        tempo[1] = Heuristics::CaricaTempo(pArraySchedule[1],GMacch2);
-
-    if (GNum_Macchine == 3)
-        tempo[2] = Heuristics::CaricaTempo(pArraySchedule[2],GMacch3);
-
     // 	ora conosco i tempi minimi di schedulazione sulle singole macchine
     // 	a questo punto devo solo cercare il minimo di questi tempi e dato questo stabilire il set di job con release dete
     // 	anteriore a tale data.
-    minimum = tempo[0].fine;
-    for (i = 1; i < GNum_Macchine; i++)
-        minimum = min(minimum,tempo[i].fine);
+    minimum = getMinimumScheduleTime(tempo);
 
     //ora conosco il minimo
     // 	devo costruire il set dei job released
-    for(i = 0; i < pDimJob; i++)
-    {
-        if
-                (
-                 (pArray_jobs[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                 &&
-                 (pArray_jobs[i].rel_time <= minimum)
-                 )
-        {
-            pArray_jobs[i].adatto = 1;
-            if(pArray_jobs[i].deadline > 0)
-                deadline_vett[i] = pArray_jobs[i].deadline;//salvo le deadline
-
-            if(pArray_jobs[i].duedate > 0)//qui ho modificato puo' esserci lo stesso job su + vettori
-                duedate_vett[i] = pArray_jobs[i].duedate;//salvo le duedate
-
-            if(pArray_jobs[i].duedate == 0 && pArray_jobs[i].deadline == 0)
-                else_vett[i] = 1;//salvo la posizione dei job privi di duedate e deadline
-
-        }
-        if
-                (
-                 (pArray_jobs[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                 &&
-                 (pArray_jobs[i].rel_time <= minimum_alternativo)
-                 )
-        {
-            minimum_alternativo=pArray_jobs[i].rel_time;
-        }
-    }// ora ho segnato i job che posso schedulare xchï¿½ï¿½?rispettano la release date.
+    minimum_alternativo = divideJobs(pArray_jobs,pDimJob,minimum,deadline_vett,duedate_vett,else_vett);
+    // ora ho segnato i job che posso schedulare xche' rispettano la release date.
      // cerco ora un elemento con deadline != 0;
-    fine = 0;
-    k    = -1;
-    for(i = 0;i < pDimJob;i++)
-    {
-        if(deadline_vett[i] > 0)
-        {
-            k=i;
-            break;
-        }
-    }
+
+    k = getElemPosinVett(deadline_vett,pDimJob);
+
     min_deadline = 0;
     if(k >= 0)
     {
-        min_deadline = deadline_vett[k];
-        // 	ho trovato almeno un elemento che ha deadline > 0
-        for(i=k+1;i<pDimJob;i++)
-        {
-            if
-                    (
-                     (deadline_vett[i] != -1)
-                     &&
-                     (deadline_vett[i] < deadline_vett[k])
-                     )
-            {
-                k=i;// salvo la posizione
-                min_deadline = deadline_vett[k];
-            }
-        }
+        min_deadline =  getMinInVett(k, deadline_vett,pDimJob);
         fine=1;
         deadline = 1;// segno che ho trovato una deadline
     }
     min_duedate=0;
-    k = -1;
-    for(i=0;i<pDimJob;i++)
-    {
-        if(duedate_vett[i] > 0)
-        {
-            k=i;
-            break;
-        }
-    }
+    k = getElemPosinVett(duedate_vett,pDimJob);
     if(k>=0)
     {
-        min_duedate = duedate_vett[k];
-        // 	ho trovato almeno un elemento che ha duedate > 0
-        for(i=k+1;i<pDimJob;i++)
-        {
-            if
-                    (
-                     (duedate_vett[i] != -1)
-                     &&
-                     (duedate_vett[i] < duedate_vett[k])
-                     )
-            {
-                k=i;// salvo la posizione
-                min_duedate = duedate_vett[k];
-            }
-        }
+        min_duedate = getMinInVett(k, duedate_vett,pDimJob);
         fine=1;
         duedate = 1;
     }
     else //cerco un job privo di duedate e deadline
     {
-        k=-1;
-        for(i=0;i<pDimJob;i++)
-        {
-            if(else_vett[i] > 0)
-            {
-                k=i;
-                break;
-            }
-        }
+        k=getElemPosinVett(else_vett,pDimJob);
         if(k>=0)
         {
             fine = 1;
@@ -924,192 +531,48 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     }
     if(fine == 0)
     {
-        for(i = 0; i < GNum_Macchine; i++)
-            tempi_ind[i] = Heuristics::TrovaEdgeIndisp(indisp[i],minimum_alternativo);
-
-
-        minimum_alternativo2=tempi_ind[0];
-        for (i = 1; i < GNum_Macchine; i++)
-        {
-            if(tempi_ind[i] < minimum_alternativo2)
-                minimum_alternativo2=tempi_ind[i];
-
-        }
-        if (minimum_alternativo>minimum_alternativo2)
-        {
-            i=0;
-            for(i=0;i<GNum_Macchine;i++)
-            {
-                if(tempi_ind[i] < minimum_alternativo)
-                    tempi_ind[i] = minimum_alternativo;
-
-                tempo[i].fine = tempi_ind[i];
-            }
-            minimum = minimum_alternativo;
-        }
-        else
-        {
-            i=0;
-            for(i=0;i<GNum_Macchine;i++)
-            {
-                tempo[i].fine=tempi_ind[i];
-            }
-            minimum=minimum_alternativo2;
-        }
-        minimum_alternativo=max(minimum_alternativo,minimum_alternativo2);
-        for(i=0; i<pDimJob; i++)
-        {
-            if
-                    (
-                     (pArray_jobs[i].schedulato == 0)//aggiungo solo job non ancora schedulati al set possibile
-                     &&
-                     (pArray_jobs[i].rel_time <= minimum)
-                     )
-            {
-                pArray_jobs[i].adatto = 1;
-                if(pArray_jobs[i].deadline > 0)
-                {
-                    deadline_vett[i] = pArray_jobs[i].deadline;//salvo le deadline
-                }
-                if(pArray_jobs[i].duedate > 0)//qui ho modificato puï¿½ï¿½?esserci lo stesso job su + vettori
-                {
-                    duedate_vett[i] = pArray_jobs[i].duedate;//salvo le duedate
-                }
-                if(pArray_jobs[i].duedate == 0 && pArray_jobs[i].deadline == 0)
-                {
-                    else_vett[i] = 1;//salvo la posizione dei job privi di duedate e deadline
-                }
-            }
-        }
-        k=-1;
-        for(i=0;i<pDimJob;i++)
-        {
-            if(deadline_vett[i] > 0)
-            {
-                k=i;
-                break;
-            }
-        }
+       minimum_alternativo=updateMachineUnavalVer2(tempo,indisp,minimum_alternativo,minimum);
+       divideJobsVer2(pArray_jobs,pDimJob,minimum,deadline_vett,duedate_vett,else_vett);
+       
+        k=-getElemPosinVett(duedate_vett,pDimJob);
         min_deadline = 0;
         if(k>=0)
         {
-            min_deadline = deadline_vett[k];
-            // 	ho trovato almeno un elemento che ha deadline > 0
-            for(i=k+1;i<pDimJob;i++)
-            {
-                if
-                        (
-                         (deadline_vett[i] != -1)
-                         &&
-                         (deadline_vett[i] < deadline_vett[k])
-                         )
-                {
-                    k=i;// salvo la posizione
-                    min_deadline = deadline_vett[k];
-                }
-            }
+            min_deadline = getMinInVett(k, deadline_vett,pDimJob);
             fine=1;
             deadline = 1;// segno che ho trovato una deadline
         }
         min_duedate=0;
-        k=-1;
-        for(i=0;i<pDimJob;i++)
-        {
-            if(duedate_vett[i] > 0)
-            {
-                k=i;
-                break;
-            }
-        }
+        k= getElemPosinVett(duedate_vett,pDimJob);
         if(k>=0)
         {
-            min_duedate = duedate_vett[k];
-            // 	ho trovato almeno un elemento che ha duedate > 0
-            for(i=k+1;i<pDimJob;i++)
-            {
-                if
-                        (
-                         (duedate_vett[i] != -1)
-                         &&
-                         (duedate_vett[i] < duedate_vett[k])
-                         )
-                {
-                    k=i;// salvo la posizione
-                    min_duedate = duedate_vett[k];
-                }
-            }
+            min_duedate = getMinInVett(k, duedate_vett,pDimJob);
             fine=1;
             duedate = 1;
         }
         //cerco un job privo di duedate e deadline
 
-        k=-1;
-        for(i=0;i<pDimJob;i++)
-        {
-            if(else_vett[i] > 0)
-            {
-                k=i;
-                break;
-            }
-        }
+        k=getElemPosinVett(else_vett,pDimJob);
         if(k>=0)
         {
             fine = 1;
             nothing = 1;
         }
 
-        /*if(duedate != 1 && deadline != 1) //cerco un job privo di duedate e deadline
-           {
-              k=-1;
-              for(i=0;i<dim_job;i++)
-              {
-                 if(else_vett[i] > 0)
-                 {
-                    k=i;
-                    break;
-                 }
-              }
-              if(k>=0)
-              {
-                 fine = 1;
-                 nothing = 1;
-              }
-           }  */
     }
     //calcolo ora il minimo tra duedate e deadline se min resta uguale a zero significa che devo considerare gli elementi del vettore else
     int minimus =0;
     if(deadline == -1 && duedate==1)
-    {
         minimus = min_duedate;
-    }
     else if(deadline == 1 && duedate== -1)
-    {
         minimus = min_deadline;
-    }
     else if (deadline == 1 && duedate==1)
-    {
         minimus = min(min_deadline,min_duedate);
-    }
 
     if (deadline == 1)
     {//minimus indica il valore + basso della deadline
-        i=0;
-        cambio = 0;
-        while(i<pDimJob)
-        {
-            if
-                    (
-                     (deadline_vett[i]<=minimus+pDelta)//scelgo i job a distanza delta dal minimo
-                     &&
-                     (deadline_vett[i]>0)
-                     )
-            {
-                set_deadline[i] = pArray_jobs[i].ID;
-                tipo_job_deadline[i] = pArray_jobs[i].tipo;
-                cambio = 1;
-            }
-            i++;
-        }
+
+        cambio = filterJobsDelta(deadline_vett, minimus,pArray_jobs, pDelta,pDimJob,set_deadline,tipo_job_deadline);
         if(cambio == 0)
         {//se nn ho trovato una deadline in delta
             deadline = -1;
@@ -1124,23 +587,8 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     if (duedate == 1)
     {
         //minimus indica il valore + basso della deadline
-        i=0;
-        cambio = 0;
-        while(i<pDimJob)
-        {
-            if
-                    (
-                     (duedate_vett[i]<=minimus+pDelta)
-                     &&
-                     (duedate_vett[i]>0)
-                     )
-            {
-                set_duedate[i] = pArray_jobs[i].ID;
-                tipo_job_duedate[i] = pArray_jobs[i].tipo;
-                cambio = 1;
-            }
-            i++;
-        }
+        cambio = filterJobsDelta(duedate_vett, minimus,pArray_jobs, pDelta,pDimJob,set_duedate,tipo_job_duedate);
+
         if(cambio == 0)
         {//se nn ho trovato una duedate in delta
             duedate = -1;
@@ -1154,29 +602,12 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     if (nothing == 1)
     {
         //minimus indica il valore + basso della deadline
-        i=0;
-        while(i<pDimJob)
-        {
-            if(else_vett[i]!=-1)
-            {
-                set_nothing[i] = pArray_jobs[i].ID;
-                tipo_job_nothing[i] = pArray_jobs[i].tipo;
+        filterJobs(else_vett,pArray_jobs,pDimJob,set_nothing,tipo_job_nothing);
 
-            }
-            i++;
-        }
     }
 
-    i=0;
-    while(i<GNum_Macchine)
-    {
-        if(tempo[i].fine == minimum)
-        {
-            tipo_macchine[i] = tempo[i].tipo;
-            campagna_macchine[i] = tempo[i].Camp;
-        }
-        i++;
-    }
+    updateTipoCampagna(minimum,tipo_macchine,campagna_macchine,tempo);
+
 
     if(deadline ==1) //privilegio sempre le deadline se ci sono
     {
@@ -1202,18 +633,9 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 {
                                     // 					eureka posso shedulare questo job immediatamente
                                     // 					la macchina k-esima verra' assegnata al job
-                                    jj=0;
                                     st_vt = 0;
                                     setup_vett =&st_vt;
-                                    while(jj<GNum_Job)
-                                    {
-                                        if(GArray_Job[jj].ID == set_deadline[i])
-                                        {
-                                            perm[0]=GArray_Job[jj];
-                                            break;
-                                        }
-                                        jj++;
-                                    }
+                                    perm = assignJobToPerm(set_deadline,i);
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                                     Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_deadline[i];
@@ -1253,18 +675,11 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                         if (tipo_macchine[k] == 0)//vuol dire che nn ci sono altri job gia' schedulati
                         {
                             // 						nn devo pagare setup
-                            jj=0;
+
                             st_vt = 0;
                             setup_vett =&st_vt;
-                            while(jj<GNum_Job)
-                            {
-                                if(GArray_Job[jj].ID == set_deadline[i])
-                                {
-                                    perm[0]=GArray_Job[jj];
-                                    break;
-                                }
-                                jj++;
-                            }
+                            perm = assignJobToPerm(set_deadline,i);
+
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                             Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_deadline[i];
@@ -1322,18 +737,11 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 {
                                     // 					eureka posso shedulare questo job immediatamente
                                     // 					la macchina k-esima verrï¿½ï¿½?assegnata al job
-                                    j1=0;
+
                                     st_vt = 0;
                                     setup_vett =&st_vt;
-                                    while(j1<GNum_Job)
-                                    {
-                                        if(GArray_Job[j1].ID == set_duedate[i])
-                                        {
-                                            perm[0]=GArray_Job[j1];
-                                            break;
-                                        }
-                                        j1++;
-                                    }
+                                    perm = assignJobToPerm(set_duedate,i);
+
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                                     Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_duedate[i];
@@ -1375,18 +783,10 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                         {
                             // 						nn devo pagare setup
                             //MIA
-                            jj=0;
+
                             st_vt = 0;
                             setup_vett =&st_vt;
-                            while(jj<GNum_Job)
-                            {
-                                if(GArray_Job[jj].ID == set_duedate[i])
-                                {
-                                    perm[0]=GArray_Job[jj];
-                                    break;
-                                }
-                                jj++;
-                            }
+                            perm = assignJobToPerm(set_duedate,i);
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                             Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_duedate[i];
@@ -1444,18 +844,10 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 {
                                     // 								eureka posso shedulare questo job immediatamente
                                     // 								la macchina k-esima verrï¿½ï¿½?assegnata al job
-                                    j1=0;
+
                                     st_vt = 0;
                                     setup_vett =&st_vt;
-                                    while(j1<GNum_Job)
-                                    {
-                                        if(GArray_Job[j1].ID == set_nothing[i])
-                                        {
-                                            perm[0]=GArray_Job[j1];
-                                            break;
-                                        }
-                                        j1++;
-                                    }
+                                    perm = assignJobToPerm(set_nothing,i);
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                                     Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_nothing[i];
@@ -1496,18 +888,10 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                         if (tipo_macchine[k] == 0)//vuol dire che nn ci sono altri job giï¿½ï¿½?schedulati
                         {
                             // 						nn devo pagare setup
-                            jj=0;
+
                             st_vt = 0;
                             setup_vett =&st_vt;
-                            while(jj<GNum_Job)
-                            {
-                                if(GArray_Job[jj].ID == set_nothing[i])
-                                {
-                                    perm[0]=GArray_Job[jj];
-                                    break;
-                                }
-                                jj++;
-                            }
+                            perm = assignJobToPerm(set_nothing,i);
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
                             Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_nothing[i];
@@ -1543,47 +927,11 @@ int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
     }
 
     // 	 a questo punto ho la matrice dei setup e devo scegliere quello a costo minimo.
-    pos_i = 0;
-    pos_k = 0;
-    for(i=0;i<pDimJob;i++)
-    {
-        for(k=0;k<GNum_Macchine;k++)
-        {
-            // 			devo trovare un elemento nn nullo
-            if
-                    (
-                     (setup_matrix[pos_i][pos_k] == -1)
-                     &&
-                     (setup_matrix[i][k]!=-1)
-                     )
-            {
-                pos_i = i;
-                pos_k = k;
-            }
-            if
-                    (
-                     (setup_matrix[i][k]>=0)
-                     &&
-                     (setup_matrix[i][k] < setup_matrix[pos_i][pos_k])
-                     )
-            {
-                pos_i = i;
-                pos_k = k;
-            }
-        }
-    }
-    jj=0;
+    minMatrix(pDimJob,setup_matrix,pos_i,pos_k);
+
     st_vt = 1;
     setup_vett =&st_vt;
-    while(jj<GNum_Job)
-    {
-        if(GArray_Job[jj].ID == set_matrix[pos_i][pos_k])
-        {
-            perm[0]=GArray_Job[jj];
-            break;
-        }
-        jj++;
-    }
+    assignJobToPermWithSetup(set_matrix, pos_i,pos_k);
     VerificaMacchina(pArraySchedule[pos_k],indisp[pos_k],disponibilita,setup_vett,0,perm,0);
     Schedula::AggiungiSchedula(pArraySchedule[pos_k],perm[0],disponibilita[0],setup_vett[0]);
     kk = set_matrix[pos_i][pos_k];
@@ -1845,62 +1193,24 @@ TJob *Heuristics::PermutazioneEdd_2Tipo ( TJob *pArray_Job_Attuale,int pDim_Job 
 }
 TJob *Heuristics::PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' l'euristica di base presentata nella tesi di Ritota
-    TJob1 *array_job_locale = NULL;
     int i= 0;
     int temp = 0;
     TSchedula *M1_sch_locale = NULL;
     TSchedula *M2_sch_locale = NULL;
     TSchedula *M3_sch_locale = NULL;
-    TSchedula **schedule_locali = NULL;
-    TJob * perm1 = NULL;
+    initializeLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+    // 	schedule_locali a' un vettore di puntatori alle schedule locali
+    TSchedula **schedule_locali = initializeArrayLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+    TJob1 *array_job_locale = copyArrayJob(pArray_Job_Attuale, pDimJob);
+    TJob * perm1 =  new TJob[pDimJob];
     int k = 0;
 
-
-    array_job_locale = new TJob1[pDimJob];
-
-    //	inizializzo le schedule locali che serviranno per la individuazione della sequenza di job
-    M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
-    if(GNum_Macchine >= 2)
-        M2_sch_locale = new TSchedula;
-    if(GNum_Macchine == 3)
-        M3_sch_locale = new TSchedula;
-
-    // 	schedule_locali a' un vettore di puntatori alle schedule locali
-    schedule_locali = new TSchedula*[GNum_Macchine];
-    perm1 = new TJob[pDimJob];
-    //inizializzo le schedule locali
-    Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);// fa una copia di M1_sch in M1_sch_locale
-    schedule_locali[0] = M1_sch_locale;
-    if(GNum_Macchine >= 2)
-    {
-        Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
-        schedule_locali[1] = M2_sch_locale;
-    }
-    if(GNum_Macchine == 3)
-    {
-        Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
-        schedule_locali[2] = M3_sch_locale;
-    }
-// ________________________________________________________________________________
-// copio le informazioni contenute in array_job_attuale 	
-    for(i = 0;i<pDimJob;i++)
-    {
-        array_job_locale[i].ID          = pArray_Job_Attuale[i].ID;
-        array_job_locale[i].tipo        = pArray_Job_Attuale[i].tipo;
-        array_job_locale[i].proc_time   = pArray_Job_Attuale[i].proc_time;
-        array_job_locale[i].duedate     = pArray_Job_Attuale[i].duedate;
-        array_job_locale[i].deadline    = pArray_Job_Attuale[i].deadline;
-        array_job_locale[i].priority    = pArray_Job_Attuale[i].priority;
-        array_job_locale[i].rel_time    = pArray_Job_Attuale[i].rel_time;
-        array_job_locale[i].adatto      = 0;
-        array_job_locale[i].schedulato  = 0;
-    }
-//__________________________________________________________________________________
-// 	Qui comincia la parte principale dell'algoritmo
+    //__________________________________________________________________________________
+    // 	Qui comincia la parte principale dell'algoritmo
     i=0;
     while (i<pDimJob)// fin quando non ho schedulato tutti i job
     {
-        temp = Heuristics::AggiungiJobPerm(array_job_locale,pDimJob,schedule_locali);
+        temp = AggiungiJobPerm(array_job_locale,pDimJob,schedule_locali);
 
         k = 0;
         while(k < pDimJob)
@@ -1919,74 +1229,32 @@ TJob *Heuristics::PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
             }
             k++;
         }
-        for(int jj = 0;jj < pDimJob; jj++)
-            array_job_locale[jj].adatto = 0;// devo verificare se e' cambiato
-
-	i++;	
+        array_job_locale[i].adatto = 0;
+        i++;
     }
-// ____________________________________________________________________________________
-	
-//devo ora liberare lo spazio delle schedule locali
-        Schedula::EliminaSchedula(M1_sch_locale);
-        if(GNum_Macchine >= 2)
-            Schedula::EliminaSchedula(M2_sch_locale);
-        if(GNum_Macchine == 3)
-            Schedula::EliminaSchedula(M3_sch_locale);
+    // ____________________________________________________________________________________
 
-        delete(schedule_locali);
-        delete(array_job_locale);
-	return perm1;
-
+    //devo ora liberare lo spazio delle schedule locali
+    eliminaSchedule(M1_sch_locale,M2_sch_locale, M3_sch_locale);
+    delete(schedule_locali);
+    delete(array_job_locale);
+    return perm1;
 }
-
 TJob *Heuristics::PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' un'euristica basata sul concetto di Delta
-    TJob1 *array_job_locale = NULL;
     int i= 0;
     int Delta = 10;
     int temp = 0;
     TSchedula *M1_sch_locale = NULL;
     TSchedula *M2_sch_locale = NULL;
     TSchedula *M3_sch_locale = NULL;
-    TSchedula **schedule_locali = NULL;
-    TJob * perm1 = NULL;
+    initializeLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+
+    TSchedula **schedule_locali = initializeArrayLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+    TJob1 *array_job_locale = copyArrayJob(pArray_Job_Attuale, pDimJob);
+    TJob * perm1 =  new TJob[pDimJob];
     int k = 0;
-    array_job_locale = new TJob1[pDimJob];
 
-    M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
-    if(GNum_Macchine >= 2)
-        M2_sch_locale = new TSchedula;
-    if(GNum_Macchine == 3)
-        M3_sch_locale = new TSchedula;
-
-    schedule_locali=new TSchedula*[GNum_Macchine];
-    perm1 = new TJob[pDimJob];
-    {//inizializzo le schedule locali
-        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
-        schedule_locali[0] = M1_sch_locale;
-        if(GNum_Macchine >= 2)
-        {
-            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
-            schedule_locali[1] = M2_sch_locale;
-        }
-        if(GNum_Macchine == 3)
-        {
-            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
-            schedule_locali[2] = M3_sch_locale;
-        }
-    }
-    for(i = 0;i < pDimJob; i++)
-    {
-        array_job_locale[i].ID = pArray_Job_Attuale[i].ID;
-        array_job_locale[i].tipo = pArray_Job_Attuale[i].tipo;
-        array_job_locale[i].proc_time = pArray_Job_Attuale[i].proc_time;
-        array_job_locale[i].duedate = pArray_Job_Attuale[i].duedate;
-        array_job_locale[i].deadline = pArray_Job_Attuale[i].deadline;
-        array_job_locale[i].priority = pArray_Job_Attuale[i].priority;
-        array_job_locale[i].rel_time = pArray_Job_Attuale[i].rel_time;
-        array_job_locale[i].adatto = 0;
-        array_job_locale[i].schedulato = 0;
-    }
     i = 0;
     while (i<pDimJob)
     {
@@ -2011,12 +1279,7 @@ TJob *Heuristics::PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
 	i++;	
     }
 	//devo ora liberare lo spazio delle schedule locali
-    Schedula::EliminaSchedula(M1_sch_locale);
-    if(GNum_Macchine >= 2)
-        Schedula::EliminaSchedula(M2_sch_locale);
-    if(GNum_Macchine == 3)
-        Schedula::EliminaSchedula(M3_sch_locale);
-
+    eliminaSchedule(M1_sch_locale,M2_sch_locale, M3_sch_locale);
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
@@ -2024,52 +1287,19 @@ TJob *Heuristics::PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
 }
 TJob *Heuristics::PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' un'euristica basata sul concetto di Delta
-    TJob1 *array_job_locale = NULL;
     int i= 0;
     int Delta = 15;
     int temp = 0;
     TSchedula *M1_sch_locale = NULL;
     TSchedula *M2_sch_locale = NULL;
     TSchedula *M3_sch_locale = NULL;
-    TSchedula **schedule_locali = NULL;
-    TJob * perm1 = NULL;
+    initializeLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+
+    TSchedula **schedule_locali = initializeArrayLocalSchedules(M1_sch_locale,M2_sch_locale,M3_sch_locale);
+    TJob1 *array_job_locale = copyArrayJob(pArray_Job_Attuale, pDimJob);
+    TJob * perm1 =  new TJob[pDimJob];
     int k = 0;
 
-    array_job_locale=new TJob1[pDimJob];
-    M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
-    if(GNum_Macchine >= 2)
-        M2_sch_locale = new TSchedula;
-    if(GNum_Macchine == 3)
-        M3_sch_locale = new TSchedula;
-
-    schedule_locali = new TSchedula*[GNum_Macchine];
-    perm1 = new TJob[pDimJob];
-    {//inizializzo le schedule locali
-        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
-        schedule_locali[0] = M1_sch_locale;
-        if(GNum_Macchine >= 2)
-        {
-            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
-            schedule_locali[1] = M2_sch_locale;
-        }
-        if(GNum_Macchine == 3)
-        {
-            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
-            schedule_locali[2] = M3_sch_locale;
-        }
-    }
-    for(i = 0;i<pDimJob;i++)
-    {
-        array_job_locale[i].ID = pArray_Job_Attuale[i].ID;
-        array_job_locale[i].tipo = pArray_Job_Attuale[i].tipo;
-        array_job_locale[i].proc_time = pArray_Job_Attuale[i].proc_time;
-        array_job_locale[i].duedate = pArray_Job_Attuale[i].duedate;
-        array_job_locale[i].deadline = pArray_Job_Attuale[i].deadline;
-        array_job_locale[i].priority = pArray_Job_Attuale[i].priority;
-        array_job_locale[i].rel_time = pArray_Job_Attuale[i].rel_time;
-        array_job_locale[i].adatto = 0;
-        array_job_locale[i].schedulato = 0;
-    }
     i=0;
     while (i<pDimJob)
     {
@@ -2094,12 +1324,7 @@ TJob *Heuristics::PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    Schedula::EliminaSchedula(M1_sch_locale);
-    if(GNum_Macchine >= 2)
-        Schedula::EliminaSchedula(M2_sch_locale);
-    if(GNum_Macchine == 3)
-        Schedula::EliminaSchedula(M3_sch_locale);
-
+    eliminaSchedule(M1_sch_locale,M2_sch_locale, M3_sch_locale);
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
@@ -3337,7 +2562,7 @@ TJob *Heuristics::PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
         vett_Lat[i]         = new int[GNum_Macchine];
         vett_End[i]         = new int[GNum_Macchine];
         vett_setup[i]       = new int[GNum_Macchine];
-        scelti[i]           = new int[3]; /*sempre immagazina 3 valori non è come gli altri array*/
+        scelti[i]           = new int[3]; /*sempre immagazina 3 valori non ?come gli altri array*/
     }
 
     TSchedula *M1_sch_locale = NULL;
@@ -3649,7 +2874,7 @@ TJob *Heuristics::PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int d
     int **disponibilita = NULL;
     int **scelti        = NULL;
     int *vett_max_Lat =  NULL;
-    delta = 3*Heuristics::CalcolaProcTimeMedio();
+    delta = 3*Heuristics::CalcolaProcTimeMedioArrayJob();
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -3914,7 +3139,7 @@ TJob *Heuristics::PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim
     int **disponibilita = NULL;
     int **scelti = NULL;
     int *vett_max_Lat = NULL;
-    delta = Heuristics::CalcolaProcTimeMedio();
+    delta = Heuristics::CalcolaProcTimeMedioArrayJob();
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -4179,7 +3404,7 @@ TJob *Heuristics::PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, in
     int **disponibilita = NULL;
     int **scelti        = NULL;
     int *vett_max_Lat   = NULL;
-    delta = ceil((float)Heuristics::CalcolaProcTimeMedio()/2);
+    delta = ceil((float)Heuristics::CalcolaProcTimeMedioArrayJob()/2);
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -4491,7 +3716,7 @@ TJob *Heuristics::PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int d
     int k = 0;
 
     array_job_locale=new TJob1[dim_job];
-    Delta = ceil((float)Heuristics::CalcolaProcTimeMedio()/2);
+    Delta = ceil((float)Heuristics::CalcolaProcTimeMedioArrayJob()/2);
 
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
@@ -4576,7 +3801,7 @@ TJob *Heuristics::PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_jo
     TJob * perm1 = NULL;
     int k = 0;
     array_job_locale=new TJob1[dim_job];
-    Delta = Heuristics::CalcolaProcTimeMedio();
+    Delta = Heuristics::CalcolaProcTimeMedioArrayJob();
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
         M2_sch_locale = new TSchedula;
@@ -4658,7 +3883,7 @@ TJob *Heuristics::PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_
     TJob * perm1 = NULL;
     int k = 0;
 
-    Delta = 3*Heuristics::CalcolaProcTimeMedio();
+    Delta = 3*Heuristics::CalcolaProcTimeMedioArrayJob();
     array_job_locale=new TJob1[dim_job];
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
@@ -4728,18 +3953,3 @@ TJob *Heuristics::PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_
     return perm1;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
