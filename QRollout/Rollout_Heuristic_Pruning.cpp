@@ -100,9 +100,9 @@ TJob *QRolloutThread::Rollout_Heuristic_Pruning(int force)
                 {
                     if (Ffunzioni[i].perc_utilizzo !=-1)
                     {
-                        AzzeraSchedule();
+                        Schedula::AzzeraSchedule();
                         perm_di_passaggio=new TJob[GNum_Job];
-                        InizializzaPermutazioneMigliore(perm_di_passaggio);
+                        Heuristics::InizializzaPermutazioneMigliore(perm_di_passaggio);
                         for(pp = 0; pp < GNum_Job - cont_livelli - 1;pp++)
                             perm_di_passaggio[pp] = GBest_Perm[pp];
 
@@ -114,7 +114,7 @@ TJob *QRolloutThread::Rollout_Heuristic_Pruning(int force)
                         CostruisciEValutaSchedula(GMacch1_Sched,GMacch2_Sched,GMacch3_Sched,prossimo2,perm_di_passaggio,GNum_Job);
                         //prossimo2 contiene le informazioni su questa schedulazione con perm_di_passaggio
                         delete(prossimo2);
-                        AzzeraSchedule();
+                        Schedula::AzzeraSchedule();
                         permutazioni[i] = Ffunzioni[i].funz(array_job_attuale_temp,cont_livelli);
                         //si scrive nelle righe di permutazioni la permutazione trovata dalla i-esima euristica
                         //se prossimo e' NULL si inizializza come testa della lista altrimenti si aggiunge in cosa un nuovo elemento temp
@@ -144,7 +144,7 @@ TJob *QRolloutThread::Rollout_Heuristic_Pruning(int force)
                         //completo la fine perm_di_passaggio con la permutazione appena trovata dall'euristica
                         for(jj = 0;pp < GNum_Job;pp++,jj++)
                             perm_di_passaggio[pp] = permutazioni[i][jj];
-                        AzzeraSchedule();
+                        Schedula::AzzeraSchedule();
                         //costruisce e valuta la schedula ottenuta dalla perm_di_passaggio salvando i risultati ottenuti in prossimo
                         CostruisciEValutaSchedula(GMacch1_Sched,GMacch2_Sched,GMacch3_Sched,prossimo,perm_di_passaggio,GNum_Job);
 
@@ -502,7 +502,7 @@ TJob *QRolloutThread::Rollout_Heuristic_Pruning(int force)
     array_job_attuale[i].ID=-1;
     //libero memoria che non mi serve più
     delete(array_job_attuale);
-    AzzeraSchedule();
+    Schedula::AzzeraSchedule();
     TNext_Elem *prossimo1;
     prossimo1= new TNext_Elem;
     prossimo1->next=NULL;

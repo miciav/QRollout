@@ -103,12 +103,12 @@ TJob *QRolloutThread::Rollout ( int force )
                 prossimo = NULL;
                 for ( i = 0;i<Fnum_Heur;i++ ) //num_heur dovra' essere cambiato con il numero di heuristiche effettivamente usato
                 {
-                    AzzeraSchedule();// azzero le schedule
+                    Schedula::AzzeraSchedule();// azzero le schedule
                     //___________________________________________________________________________________
                     // calcolo i riempimenti parziali delle schedule
                     perm_di_passaggio = new TJob[GNum_Job];
 
-                    InizializzaPermutazioneMigliore ( perm_di_passaggio );
+                    Heuristics::InizializzaPermutazioneMigliore(perm_di_passaggio );
 
                     for ( pp=0;pp<GNum_Job-cont_livelli-1;pp++ )
                         perm_di_passaggio[pp] = GBest_Perm[pp];
@@ -152,7 +152,7 @@ TJob *QRolloutThread::Rollout ( int force )
                     {
                         perm_di_passaggio[pp] = permutazioni[i][jj];
                     }
-                    AzzeraSchedule();
+                    Schedula::AzzeraSchedule();
                     CostruisciEValutaSchedula ( GMacch1_Sched,GMacch2_Sched,GMacch3_Sched,prossimo,perm_di_passaggio,GNum_Job );
 
                     QString TestoASchermo = QString(" %i) %i %i %i %i num iter %i\n").arg(i).arg(FLmax).arg(FCmax).arg(FTardy).arg(Ffeasible).arg(GNum_Job-cont_livelli);
@@ -168,11 +168,11 @@ TJob *QRolloutThread::Rollout ( int force )
                         M2_sch_buffer   = new TSchedula;
                         M3_sch_buffer   = new TSchedula;
 
-                        CopiaSchedule ( GMacch1_Sched,M1_sch_buffer );
+                        Schedula::CopiaSchedule ( GMacch1_Sched,M1_sch_buffer );
                         if ( GNum_Macchine >= 2 )
-                            CopiaSchedule ( GMacch2_Sched,M2_sch_buffer );
+                            Schedula::CopiaSchedule ( GMacch2_Sched,M2_sch_buffer );
                         if ( GNum_Macchine == 3 )
-                            CopiaSchedule ( GMacch3_Sched,M3_sch_buffer );
+                            Schedula::CopiaSchedule ( GMacch3_Sched,M3_sch_buffer );
 
                         VNS ( M1_sch_buffer,M2_sch_buffer,M3_sch_buffer );
                         BilanciamentoSchedule ( M1_sch_buffer,M2_sch_buffer,M3_sch_buffer );//bilancio
@@ -181,11 +181,11 @@ TJob *QRolloutThread::Rollout ( int force )
                                          M3_sch_buffer,
                                          prossimo1 );
 
-                        EliminaSchedula ( M1_sch_buffer );
+                        Schedula::EliminaSchedula ( M1_sch_buffer );
                         if ( GNum_Macchine>=2 )
-                            EliminaSchedula ( M2_sch_buffer );
+                            Schedula::EliminaSchedula ( M2_sch_buffer );
                         if ( GNum_Macchine==3 )
-                            EliminaSchedula ( M3_sch_buffer );
+                            Schedula::EliminaSchedula ( M3_sch_buffer );
 
                         TNext_Elem *tmp_prox;
                         tmp_prox=prossimo;
@@ -532,7 +532,7 @@ TJob *QRolloutThread::Rollout ( int force )
     delete job_fisso;
     delete[] array_job_attuale;
 
-    AzzeraSchedule();
+    Schedula::AzzeraSchedule();
 
     prossimo1 = new TNext_Elem;
     prossimo1->next=NULL;

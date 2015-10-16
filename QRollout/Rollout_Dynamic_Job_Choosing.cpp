@@ -100,9 +100,9 @@ TJob *QRolloutThread::Rollout_Dynamic_Job_Choosing ( int pForce )
                 for (i = 0; i < Fnum_Heur; i++)
                 {
                     //inizializza la perm_di_passaggio con la best_perm, cioè con la schedulazione gi  fatta
-                    AzzeraSchedule();
+                    Schedula::AzzeraSchedule();
                     perm_di_passaggio = new TJob[GNum_Job];
-                    InizializzaPermutazioneMigliore(perm_di_passaggio);
+                    Heuristics::InizializzaPermutazioneMigliore(perm_di_passaggio);
                     for(pp=0;pp<GNum_Job-cont_livelli-1;pp++)
                         perm_di_passaggio[pp]=GBest_Perm[pp];
 
@@ -124,7 +124,7 @@ TJob *QRolloutThread::Rollout_Dynamic_Job_Choosing ( int pForce )
                                                  GNum_Job);
                     //prossimo2 contiene le informazioni su questa schedulazione con perm_di_passaggio
                     delete(prossimo2);
-                    AzzeraSchedule();
+                    Schedula::AzzeraSchedule();
                     permutazioni[i] = Ffunzioni[i].funz(array_job_attuale_temp,cont_livelli);
 
                     //si scrive nelle righe di permutazioni la permutazione trovata dalla i-esima euristica
@@ -159,7 +159,7 @@ TJob *QRolloutThread::Rollout_Dynamic_Job_Choosing ( int pForce )
                     for( int jj = 0; pp < GNum_Job; pp++, jj++)
                         perm_di_passaggio[pp] = permutazioni[i][jj];
 
-                    AzzeraSchedule();
+                    Schedula::AzzeraSchedule();
                     //costruisce e valuta la schedula ottenuta dalla perm_di_passaggio salvando i risultati ottenuti in prossimo
                     CostruisciEValutaSchedula(GMacch1_Sched,
                                                  GMacch2_Sched,
@@ -647,7 +647,7 @@ TJob *QRolloutThread::Rollout_Dynamic_Job_Choosing ( int pForce )
     array_job_attuale[i].ID=-1;
     //libero memoria che non mi serve più
     delete(array_job_attuale);
-    AzzeraSchedule();
+    Schedula::AzzeraSchedule();
     TNext_Elem *prossimo1;
     prossimo1= new TNext_Elem;
     prossimo1->next=NULL;

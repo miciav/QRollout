@@ -6,7 +6,8 @@
 
 TEMPLATE = subdirs
 
-SUBDIRS   = SchedInt \
-            QRollout
+SUBDIRS   = QRollout \
+            SchedInt
 
 CONFIG   += ordered
+

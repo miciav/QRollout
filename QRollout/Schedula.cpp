@@ -5,7 +5,7 @@
 //*************************************************************************************************
 //la funzione seguente aggiunge un singolo job alla schedula
 //*************************************************************************************************
-void AggiungiSchedula ( TSchedula *pSched, TJob pTask,int pTime,int pSetup_Vett )
+void Schedula::AggiungiSchedula ( TSchedula *pSched, TJob pTask,int pTime,int pSetup_Vett )
 {
     //dichiarazione di variabili
     TSchedula *nuovo;
@@ -63,7 +63,7 @@ void AggiungiSchedula ( TSchedula *pSched, TJob pTask,int pTime,int pSetup_Vett 
 
 }
 
-void InizializzaSchedula  ( TSchedula *pSched )
+void Schedula::InizializzaSchedula  ( TSchedula *pSched )
 {
     pSched->ID_job = -3;
     pSched->tipo = 0;
@@ -75,7 +75,7 @@ void InizializzaSchedula  ( TSchedula *pSched )
     pSched->next = NULL;
 }
 
-void EliminaSchedula ( TSchedula *pSched )
+void Schedula::EliminaSchedula ( TSchedula *pSched )
 {
     //devo ora liberare lo spazio delle schedule locali
     TSchedula *Sch_Attuale;
@@ -91,7 +91,7 @@ void EliminaSchedula ( TSchedula *pSched )
     }
 }
 
-void CopiaSchedule ( TSchedula *pSched1,TSchedula *pSched2 )
+void Schedula::CopiaSchedule ( TSchedula *pSched1,TSchedula *pSched2 )
 {
     /*int ID_job;
                 int tipo;
@@ -128,7 +128,7 @@ void CopiaSchedule ( TSchedula *pSched1,TSchedula *pSched2 )
 
 }
 
-void  AzzeraSchedule ( void )
+void Schedula::AzzeraSchedule ( void )
 {
     if ( GMacch1_Sched != NULL )
         EliminaSchedula(GMacch1_Sched);
@@ -154,9 +154,7 @@ void  AzzeraSchedule ( void )
         InizializzaSchedula(GMacch3_Sched);
     }
 }
-
-
-void DistruggiSchedule ( int pNum_Macchine )
+void Schedula::DistruggiSchedule ( int pNum_Macchine )
 {
     if ( pNum_Macchine == 2 ) //mi trovo nel caso di dispencing
     {
@@ -172,7 +170,7 @@ void DistruggiSchedule ( int pNum_Macchine )
 
 }
 
-int CmaxSchedula ( TSchedula *pSched )
+int Schedula::CmaxSchedula ( TSchedula *pSched )
 {
     // 	lo scopo di questa funzione e' quello di individuare il valore del tempo di completamento di una schedula passatagli come parametro.
     if ( pSched == NULL ) return 0;
@@ -184,7 +182,7 @@ int CmaxSchedula ( TSchedula *pSched )
 
 }
 
-int MaxCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
+int Schedula::MaxCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
 {
     // questa funzione considera la schedule separatamente e poi calcola il massimo del loro tempo di completamento.
     int *vettore_dei_tempi; //conterra'  i tempi di completamento delle macchine.
@@ -206,7 +204,7 @@ int MaxCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
     return massimo;
 }
 
-int MinCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
+int Schedula::MinCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
 {
     // questa funzione considera la schedule separatamente e poi calcola il minimo del loro tempo di completamento.
     int *vettore_dei_tempi; //conterra'  i tempi di completamento delle macchine.
@@ -227,7 +225,7 @@ int MinCmaxSchedula ( TSchedula **pVett_Schedule,int pNum_Macchine )
     return minimo;
 }
 
-TQuaterna *ValutaSingolaSchedula ( TSchedula *pSched )
+TQuaterna *Schedula::ValutaSingolaSchedula ( TSchedula *pSched )
 {
     TQuaterna *quaterna_di_lavoro;
     quaterna_di_lavoro = new TQuaterna;

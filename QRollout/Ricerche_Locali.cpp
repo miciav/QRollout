@@ -118,8 +118,8 @@ void QRolloutThread::MossaSwap(TSchedula *pM1_sch,
         VerificaMacchina(pSchedula_di_lavoro1,pM1,disponibilita1,setup_vett1,0,job_swap2,0);
         VerificaMacchina(pSchedula_di_lavoro2,pM2,disponibilita2,setup_vett2,0,job_swap1,0);
 
-        AggiungiSchedula(pSchedula_di_lavoro1,job_swap2[0],disponibilita1[0],setup_vett1[0]);
-        AggiungiSchedula(pSchedula_di_lavoro2,job_swap1[0],disponibilita2[0],setup_vett2[0]);
+        Schedula::AggiungiSchedula(pSchedula_di_lavoro1,job_swap2[0],disponibilita1[0],setup_vett1[0]);
+        Schedula::AggiungiSchedula(pSchedula_di_lavoro2,job_swap1[0],disponibilita2[0],setup_vett2[0]);
 	
 	//rischedula i job sulle schedule_di_lavoro che sono dopo i job swappati
 	M1_sch_temp = M1_sch_temp->next;
@@ -132,7 +132,7 @@ void QRolloutThread::MossaSwap(TSchedula *pM1_sch,
 			i++;
 		}
                 VerificaMacchina(pSchedula_di_lavoro1,pM1,disponibilita1,setup_vett1,0,job_temp,0);
-                AggiungiSchedula(pSchedula_di_lavoro1,job_temp[0],disponibilita1[0],setup_vett1[0]);
+                Schedula::AggiungiSchedula(pSchedula_di_lavoro1,job_temp[0],disponibilita1[0],setup_vett1[0]);
 		M1_sch_temp = M1_sch_temp->next;
 		//temp1=temp1->next;
 	}
@@ -148,7 +148,7 @@ void QRolloutThread::MossaSwap(TSchedula *pM1_sch,
 			i++;
 		}
                 VerificaMacchina(pSchedula_di_lavoro2,pM2,disponibilita2,setup_vett2,0,job_temp,0);
-                AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita2[0],setup_vett1[0]);
+                Schedula::AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita2[0],setup_vett1[0]);
 		M2_sch_temp = M2_sch_temp->next;
 	}
 	//libero un pò di memoria
@@ -243,7 +243,7 @@ void QRolloutThread::MossaInsert(TSchedula *pInCuiInserire,
 		i++;
 	}
         VerificaMacchina(pSchedula_di_lavoro1,pM1,disponibilita,setup_vett,0,job_insert,0);
-        AggiungiSchedula(pSchedula_di_lavoro1,job_insert[0],disponibilita[0],setup_vett[0]);
+        Schedula::AggiungiSchedula(pSchedula_di_lavoro1,job_insert[0],disponibilita[0],setup_vett[0]);
 
 	//continuo a schedulare la schedula_di_lavoro1 fino alla fine
 	while(Sch1_ins_temp != NULL){
@@ -256,7 +256,7 @@ void QRolloutThread::MossaInsert(TSchedula *pInCuiInserire,
 			i++;
 		}
                 VerificaMacchina(pSchedula_di_lavoro1,pM1,disponibilita,setup_vett,0,job_temp,0);
-                AggiungiSchedula(pSchedula_di_lavoro1,job_temp[0],disponibilita[0],setup_vett[0]);
+                Schedula::AggiungiSchedula(pSchedula_di_lavoro1,job_temp[0],disponibilita[0],setup_vett[0]);
 		Sch1_ins_temp=Sch1_ins_temp->next;
 	}
 
@@ -272,7 +272,7 @@ void QRolloutThread::MossaInsert(TSchedula *pInCuiInserire,
 			i++;
 		}
                 VerificaMacchina(pSchedula_di_lavoro2,pM2,disponibilita,setup_vett,0,job_temp,0);
-                AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita[0],setup_vett[0]);
+                Schedula::AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita[0],setup_vett[0]);
 		Sch2_ins_temp=Sch2_ins_temp->next;
 	}
         //faccio un pò di delete
@@ -346,7 +346,7 @@ void QRolloutThread::MossaSpostaInCoda(TSchedula *pM_sch,
             i++;
         }
         VerificaMacchina(pSch_Coda,pM,disponibilita,setup_vett,0,job_temp,0);
-        AggiungiSchedula(pSch_Coda,job_temp[0],disponibilita[0],setup_vett[0]);
+        Schedula::AggiungiSchedula(pSch_Coda,job_temp[0],disponibilita[0],setup_vett[0]);
         M_sch_temp = M_sch_temp->next;	}
 
     //metto in coda l'elemento in coda
@@ -358,7 +358,7 @@ void QRolloutThread::MossaSpostaInCoda(TSchedula *pM_sch,
         i++;
     }
     VerificaMacchina(pSch_Coda, pM, disponibilita, setup_vett, 0, job_temp, 0);
-    AggiungiSchedula(pSch_Coda, job_temp[0], disponibilita[0], setup_vett[0]);
+    Schedula::AggiungiSchedula(pSch_Coda, job_temp[0], disponibilita[0], setup_vett[0]);
     //libera memoria
     delete(disponibilita);
     delete(setup_vett);
@@ -442,7 +442,7 @@ void QRolloutThread::MossaInsertCoda(TSchedula *pInCuiInserire,
             i++;
         }
         VerificaMacchina(pSchedula_di_lavoro2,pM2,disponibilita,setup_vett,0,job_temp,0);
-        AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita[0],setup_vett[0]);
+        Schedula::AggiungiSchedula(pSchedula_di_lavoro2,job_temp[0],disponibilita[0],setup_vett[0]);
         sch2_temp=sch2_temp->next;
     }
 
@@ -458,7 +458,7 @@ void QRolloutThread::MossaInsertCoda(TSchedula *pInCuiInserire,
         i++;
     }
     VerificaMacchina(pSchedula_di_lavoro1,pM1,disponibilita,setup_vett,0,job_insert,0);
-    AggiungiSchedula(pSchedula_di_lavoro1,job_insert[0],disponibilita[0],setup_vett[0]);
+    Schedula::AggiungiSchedula(pSchedula_di_lavoro1,job_insert[0],disponibilita[0],setup_vett[0]);
     //faccio un pò di delete
     delete(job_insert);
     delete(job_temp);
@@ -508,8 +508,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             while (temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[1],arraySch[0],arrayM[1],arrayM[0],temp2,temp1,schedula_di_lavoro1,schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, NULL, prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -525,8 +525,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -550,8 +550,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -565,14 +565,14 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -587,8 +587,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             {
                 schedula_di_lavoro1 = new TSchedula;
                 schedula_di_lavoro2 = new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[1], arrayM[0], arrayM[1], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, NULL, prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -604,8 +604,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -629,8 +629,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -644,14 +644,14 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                       Schedula::EliminaSchedula(schedula_di_lavoro1);
+                       Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1 = temp1->next;
             }
@@ -677,8 +677,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             while(temp1 !=NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[1], arraySch[0], arrayM[1], arrayM[0], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2], prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -694,8 +694,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert3 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -721,8 +721,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert4 conveniente    %d   %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax,quaterna_di_lavoro->Tardy);
 
@@ -738,13 +738,13 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -757,8 +757,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             while(temp1 !=NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[2], arraySch[0], arrayM[2], arrayM[0], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2, prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -774,8 +774,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2,arraySch[1], schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert5 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -802,8 +802,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2,arraySch[1], schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert6 conveniente    %d    %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax,quaterna_di_lavoro->Tardy);
 
@@ -819,13 +819,13 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -838,8 +838,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             while(temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[1], arrayM[0], arrayM[1], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2], prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -855,8 +855,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap3 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -882,8 +882,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
 
                         delete(arraySch);
@@ -898,14 +898,14 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -918,8 +918,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
             while(temp1 != NULL){
                 schedula_di_lavoro1 = new TSchedula;
                 schedula_di_lavoro2 = new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[2], arrayM[0], arrayM[2], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 ValutaSchedula(schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2, prossimo);
                 quaterna_di_lavoro->Feasible=prossimo->feasible;
@@ -935,8 +935,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -960,8 +960,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -975,14 +975,14 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1 = temp1->next;
             }
@@ -991,8 +991,8 @@ int QRolloutThread::RicercaLocaleTraMacchine(TSchedula *pM1_sch,
     }
     delete(quaterna_di_lavoro);
     delete(quaterna_migliore);
-    EliminaSchedula(schedula_di_lavoro1);
-    EliminaSchedula(schedula_di_lavoro2);
+    Schedula::EliminaSchedula(schedula_di_lavoro1);
+    Schedula::EliminaSchedula(schedula_di_lavoro2);
 
     delete(arraySch);
     delete(arrayM);
@@ -1014,8 +1014,8 @@ void QRolloutThread::OrdinaCandidati(TSchedula **arraySch, TElem **arrayM)
 	TQuaterna *quaterna2;
 	TQuaterna *quaterna3;
 
-        quaterna1 = ValutaSingolaSchedula(GMacch1_Sched);
-        quaterna2 = ValutaSingolaSchedula(GMacch2_Sched);
+        quaterna1 = Schedula::ValutaSingolaSchedula(GMacch1_Sched);
+        quaterna2 = Schedula::ValutaSingolaSchedula(GMacch2_Sched);
 	if(GNum_Macchine==2){
 		if (quaterna1->Lmax >= quaterna2->Lmax){
 			arraySch[0]=GMacch1_Sched;
@@ -1033,7 +1033,7 @@ void QRolloutThread::OrdinaCandidati(TSchedula **arraySch, TElem **arrayM)
                 delete(quaterna2);
 	}
 	if(GNum_Macchine == 3){
-                quaterna3 = ValutaSingolaSchedula(GMacch3_Sched);
+                quaterna3 = Schedula::ValutaSingolaSchedula(GMacch3_Sched);
 		if(quaterna1->Lmax > quaterna2->Lmax && quaterna1->Lmax > quaterna3->Lmax){
 			arraySch[0]=GMacch1_Sched;
 			arraySch[1]=GMacch2_Sched;
@@ -1076,50 +1076,50 @@ void QRolloutThread::SostituisciSchedule(TSchedula **pArraySch, TSchedula *pSche
     {
         if(pArraySch[0]==GMacch1_Sched)
         {
-            CopiaSchedule(pSchedula1 , GMacch1_Sched);
-            CopiaSchedule(pSchedula2 , GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula1 , GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula2 , GMacch2_Sched);
         }
         else{
-            CopiaSchedule(pSchedula2, GMacch1_Sched);
-            CopiaSchedule(pSchedula1, GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch2_Sched);
         }
     }
     else if (GNum_Macchine==3){
         if(pArraySch[0]==GMacch1_Sched && pArraySch[1]==GMacch2_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch1_Sched);
-            CopiaSchedule(pSchedula2, GMacch2_Sched);
-            CopiaSchedule(pschedula3, GMacch3_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch2_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch3_Sched);
         }
         if(pArraySch[0]==GMacch1_Sched && pArraySch[1]==GMacch3_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch1_Sched);
-            CopiaSchedule(pSchedula2, GMacch3_Sched);
-            CopiaSchedule(pschedula3, GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch3_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch2_Sched);
         }
         if(pArraySch[0]==GMacch2_Sched && pArraySch[1]==GMacch1_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch2_Sched);
-            CopiaSchedule(pSchedula2, GMacch1_Sched);
-            CopiaSchedule(pschedula3, GMacch3_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch1_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch3_Sched);
         }
         if(pArraySch[0]==GMacch2_Sched && pArraySch[1]==GMacch3_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch2_Sched);
-            CopiaSchedule(pSchedula2, GMacch3_Sched);
-            CopiaSchedule(pschedula3, GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch3_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch1_Sched);
         }
         if(pArraySch[0]==GMacch3_Sched && pArraySch[1]==GMacch1_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch3_Sched);
-            CopiaSchedule(pSchedula2, GMacch1_Sched);
-            CopiaSchedule(pschedula3, GMacch2_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch3_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch1_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch2_Sched);
         }
         if(pArraySch[0]==GMacch3_Sched && pArraySch[1]==GMacch2_Sched)
         {
-            CopiaSchedule(pSchedula1, GMacch3_Sched);
-            CopiaSchedule(pSchedula2, GMacch2_Sched);
-            CopiaSchedule(pschedula3, GMacch1_Sched);
+            Schedula::CopiaSchedule(pSchedula1, GMacch3_Sched);
+            Schedula::CopiaSchedule(pSchedula2, GMacch2_Sched);
+            Schedula::CopiaSchedule(pschedula3, GMacch1_Sched);
         }
     }
 }
@@ -1161,8 +1161,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             {
                 schedula_di_lavoro1 = new TSchedula;
                 schedula_di_lavoro2 = new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[1],arraySch[0],arrayM[1],arrayM[0],temp2,temp1,schedula_di_lavoro1,schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[1], arrayM[0], NULL);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, NULL, prossimo);
@@ -1179,8 +1179,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -1204,8 +1204,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         delete(arraySch);
                         delete(arrayM);
@@ -1219,14 +1219,14 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1 = temp1->next;
             }
@@ -1241,8 +1241,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             {
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[1], arrayM[0], arrayM[1], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[0], arrayM[1], NULL);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, NULL, prossimo);
@@ -1259,8 +1259,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap1 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1286,8 +1286,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap2 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1303,14 +1303,14 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -1337,8 +1337,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             while(temp1 !=NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[1], arraySch[0], arrayM[1], arrayM[0], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[1], arrayM[0], NULL);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2], prossimo);
@@ -1355,8 +1355,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert3 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1382,8 +1382,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert4 conveniente   %d     %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1399,13 +1399,13 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -1419,8 +1419,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             while(temp1 !=NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaInsert(arraySch[2], arraySch[0], arrayM[2], arrayM[0], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[2], arrayM[0], NULL);
                 ValutaSchedula(schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2, prossimo);
@@ -1437,8 +1437,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2,arraySch[1], schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert5 conveniente     %d     %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1465,8 +1465,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro2, arraySch[1], schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto un'insert6 conveniente       %d       %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1482,13 +1482,13 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -1502,8 +1502,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             while(temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[1], arrayM[0], arrayM[1], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[0], arrayM[1], NULL);
                 ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2], prossimo);
@@ -1520,8 +1520,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap3 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1547,8 +1547,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap4 conveniente    %d    %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1564,14 +1564,14 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -1585,8 +1585,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
             while(temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 MossaSwap(arraySch[0], arraySch[2], arrayM[0], arrayM[2], temp2, temp1, schedula_di_lavoro1, schedula_di_lavoro2);
                 VnsRicercaLocale(schedula_di_lavoro1, schedula_di_lavoro2, NULL, arrayM[0], arrayM[2], NULL);
                 ValutaSchedula(schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2, prossimo);
@@ -1603,8 +1603,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap5 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1630,8 +1630,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                         ris++;
                         //printf("Ho fatto uno swap6 conveniente    %d     %d   %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
 
@@ -1647,14 +1647,14 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
                     }
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
                 temp1=temp1->next;
             }
@@ -1663,8 +1663,8 @@ int QRolloutThread::RicercaLocaleTraMacchineVND(TSchedula *pM1_sch, TSchedula *p
     }
     delete(quaterna_di_lavoro);
     delete(quaterna_migliore);
-    EliminaSchedula(schedula_di_lavoro1);
-    EliminaSchedula(schedula_di_lavoro2);
+    Schedula::EliminaSchedula(schedula_di_lavoro1);
+    Schedula::EliminaSchedula(schedula_di_lavoro2);
     delete(arraySch);
     delete(arrayM);
     delete(prossimo);
@@ -1713,8 +1713,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
         while (temp2 != NULL){
             schedula_di_lavoro1=new TSchedula;
             schedula_di_lavoro2=new TSchedula;
-            InizializzaSchedula(schedula_di_lavoro1);
-            InizializzaSchedula(schedula_di_lavoro2);
+            Schedula::InizializzaSchedula(schedula_di_lavoro1);
+            Schedula::InizializzaSchedula(schedula_di_lavoro2);
             MossaInsertCoda(arraySch[1],arraySch[0],arrayM[1],arrayM[0],temp2,schedula_di_lavoro1,schedula_di_lavoro2);
             VnsPerMacchina(schedula_di_lavoro1, arrayM[1]);
             ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, NULL, prossimo);
@@ -1731,8 +1731,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     delete(arraySch);
                     delete(arrayM);
@@ -1755,8 +1755,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, NULL);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     delete(arraySch);
                     delete(arrayM);
@@ -1769,13 +1769,13 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
             }
             else{
-                EliminaSchedula(schedula_di_lavoro1);
-                EliminaSchedula(schedula_di_lavoro2);
+                Schedula::EliminaSchedula(schedula_di_lavoro1);
+                Schedula::EliminaSchedula(schedula_di_lavoro2);
             }
             temp2=temp2->next;
         }
@@ -1787,12 +1787,12 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
 
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 sch_coda1=new TSchedula;
                 sch_coda2=new TSchedula;
-                InizializzaSchedula(sch_coda1);
-                InizializzaSchedula(sch_coda2);
+                Schedula::InizializzaSchedula(sch_coda1);
+                Schedula::InizializzaSchedula(sch_coda2);
                 MossaSpostaInCoda(arraySch[0], arrayM[0], temp2, sch_coda1);
                 MossaSpostaInCoda(arraySch[1], arrayM[1], temp1, sch_coda2);
                 //coda1, coda2 puntano agli elementi della schedula da swappare, ovvero temp1, temp2 che ora sono stati messi in coda
@@ -1825,10 +1825,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap1 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                         delete(arraySch);
@@ -1852,10 +1852,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, NULL);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap2 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                         delete(arraySch);
@@ -1869,17 +1869,17 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
-                    EliminaSchedula(sch_coda1);
-                    EliminaSchedula(sch_coda2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(sch_coda1);
+                    Schedula::EliminaSchedula(sch_coda2);
                 }
                 temp1=temp1->next;
             }
@@ -1903,8 +1903,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
         while(temp2 != NULL){
             schedula_di_lavoro1=new TSchedula;
             schedula_di_lavoro2=new TSchedula;
-            InizializzaSchedula(schedula_di_lavoro1);
-            InizializzaSchedula(schedula_di_lavoro2);
+            Schedula::InizializzaSchedula(schedula_di_lavoro1);
+            Schedula::InizializzaSchedula(schedula_di_lavoro2);
             MossaInsertCoda(arraySch[1],arraySch[0],arrayM[1],arrayM[0],temp2,schedula_di_lavoro1,schedula_di_lavoro2);
             VnsPerMacchina(schedula_di_lavoro1, arrayM[1]);
             ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2], prossimo);
@@ -1921,8 +1921,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     //printf("Ho fatto un'insert3 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                     delete(arraySch);
@@ -1946,8 +1946,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, schedula_di_lavoro1, arraySch[2]);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     delete(arraySch);
                     delete(arrayM);
@@ -1960,13 +1960,13 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
             }
             else{
-                EliminaSchedula(schedula_di_lavoro1);
-                EliminaSchedula(schedula_di_lavoro2);
+                Schedula::EliminaSchedula(schedula_di_lavoro1);
+                Schedula::EliminaSchedula(schedula_di_lavoro2);
             }
             temp2=temp2->next;
         }
@@ -1975,8 +1975,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
         while(temp2 != NULL){
             schedula_di_lavoro1=new TSchedula;
             schedula_di_lavoro2=new TSchedula;
-            InizializzaSchedula(schedula_di_lavoro1);
-            InizializzaSchedula(schedula_di_lavoro2);
+            Schedula::InizializzaSchedula(schedula_di_lavoro1);
+            Schedula::InizializzaSchedula(schedula_di_lavoro2);
             MossaInsertCoda(arraySch[2],arraySch[0],arrayM[2],arrayM[0],temp2,schedula_di_lavoro1,schedula_di_lavoro2);
             VnsPerMacchina(schedula_di_lavoro1, arrayM[2]);
             ValutaSchedula(schedula_di_lavoro1, schedula_di_lavoro2, arraySch[1], prossimo);
@@ -1993,8 +1993,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, arraySch[1], schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     //printf("Ho fatto un'insert5 conveniente");
                     delete(arraySch);
@@ -2018,8 +2018,8 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                     quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                     SostituisciSchedule(arraySch, schedula_di_lavoro2, arraySch[1], schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                     ris++;
                     //printf("Ho fatto un'insert6 conveniente    %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                     delete(arraySch);
@@ -2033,13 +2033,13 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                 }
                 else
                 {
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
                 }
             }
             else{
-                EliminaSchedula(schedula_di_lavoro1);
-                EliminaSchedula(schedula_di_lavoro2);
+                Schedula::EliminaSchedula(schedula_di_lavoro1);
+                Schedula::EliminaSchedula(schedula_di_lavoro2);
             }
             temp2=temp2->next;
         }
@@ -2050,12 +2050,12 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
             while(temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 sch_coda1=new TSchedula;
                 sch_coda2=new TSchedula;
-                InizializzaSchedula(sch_coda1);
-                InizializzaSchedula(sch_coda2);
+                Schedula::InizializzaSchedula(sch_coda1);
+                Schedula::InizializzaSchedula(sch_coda2);
                 MossaSpostaInCoda(arraySch[0], arrayM[0], temp2, sch_coda1);
                 MossaSpostaInCoda(arraySch[1], arrayM[1], temp1, sch_coda2);
                 //coda1, coda2 puntano agli elementi della schedula da swappare, ovvero temp1, temp2 che ora sono stati messi in coda
@@ -2088,10 +2088,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap3 conveniente");
                         delete(arraySch);
@@ -2115,10 +2115,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, schedula_di_lavoro2, arraySch[2]);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap4 conveniente    %d     %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                         delete(arraySch);
@@ -2132,17 +2132,17 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
-                    EliminaSchedula(sch_coda1);
-                    EliminaSchedula(sch_coda2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(sch_coda1);
+                    Schedula::EliminaSchedula(sch_coda2);
                 }
                 temp1=temp1->next;
             }
@@ -2155,12 +2155,12 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
             while(temp1 != NULL){
                 schedula_di_lavoro1=new TSchedula;
                 schedula_di_lavoro2=new TSchedula;
-                InizializzaSchedula(schedula_di_lavoro1);
-                InizializzaSchedula(schedula_di_lavoro2);
+                Schedula::InizializzaSchedula(schedula_di_lavoro1);
+                Schedula::InizializzaSchedula(schedula_di_lavoro2);
                 sch_coda1=new TSchedula;
                 sch_coda2=new TSchedula;
-                InizializzaSchedula(sch_coda1);
-                InizializzaSchedula(sch_coda2);
+                Schedula::InizializzaSchedula(sch_coda1);
+                Schedula::InizializzaSchedula(sch_coda2);
                 MossaSpostaInCoda(arraySch[0], arrayM[0], temp2, sch_coda1);
                 MossaSpostaInCoda(arraySch[2], arrayM[2], temp1, sch_coda2);
                 //coda1, coda2 puntano agli elementi della schedula da swappare, ovvero temp1, temp2 che ora sono stati messi in coda
@@ -2193,10 +2193,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap5 conveniente    %d     %d     %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                         delete(arraySch);
@@ -2220,10 +2220,10 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                         quaterna_migliore->Tardy = quaterna_di_lavoro->Tardy;
                         quaterna_migliore->Feasible = quaterna_di_lavoro->Feasible;
                         SostituisciSchedule(arraySch, schedula_di_lavoro1, arraySch[1], schedula_di_lavoro2);
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                         ris++;
                         //printf("Ho fatto uno swap6 conveniente     %d     %d    %d",quaterna_di_lavoro->Lmax, quaterna_di_lavoro->Cmax, quaterna_di_lavoro->Tardy);
                         delete(arraySch);
@@ -2237,25 +2237,25 @@ int QRolloutThread::RicercaLocaleTraMacchineCoda(TSchedula *pM1_sch,
                     }
                     else
                     {
-                        EliminaSchedula(schedula_di_lavoro1);
-                        EliminaSchedula(schedula_di_lavoro2);
-                        EliminaSchedula(sch_coda1);
-                        EliminaSchedula(sch_coda2);
+                        Schedula::EliminaSchedula(schedula_di_lavoro1);
+                        Schedula::EliminaSchedula(schedula_di_lavoro2);
+                        Schedula::EliminaSchedula(sch_coda1);
+                        Schedula::EliminaSchedula(sch_coda2);
                     }
                 }
                 else{
-                    EliminaSchedula(schedula_di_lavoro1);
-                    EliminaSchedula(schedula_di_lavoro2);
-                    EliminaSchedula(sch_coda1);
-                    EliminaSchedula(sch_coda2);
+                    Schedula::EliminaSchedula(schedula_di_lavoro1);
+                    Schedula::EliminaSchedula(schedula_di_lavoro2);
+                    Schedula::EliminaSchedula(sch_coda1);
+                    Schedula::EliminaSchedula(sch_coda2);
                 }
                 temp1=temp1->next;
             }
             temp2=temp2->next;
         }
     }
-    EliminaSchedula(schedula_di_lavoro1);
-    EliminaSchedula(schedula_di_lavoro2);
+    Schedula::EliminaSchedula(schedula_di_lavoro1);
+    Schedula::EliminaSchedula(schedula_di_lavoro2);
     delete(quaterna_migliore);
     delete(quaterna_di_lavoro);
     delete(arraySch);

@@ -183,7 +183,7 @@ void QRolloutThread::run ()
 
         FTempo_Sec_Fine1 = time ( NULL );
         FTempo_Fine1 = clock();
-        AzzeraSchedule();
+        Schedula::AzzeraSchedule();
         CostruisciEValutaSchedula (GMacch1_Sched,
                                    GMacch2_Sched,
                                    GMacch3_Sched,
@@ -264,7 +264,7 @@ void QRolloutThread::run ()
                                   Fforce );
 
         DistruggiIndisponibilita ( GNum_Macchine );
-        DistruggiSchedule ( GNum_Macchine );
+        Schedula::DistruggiSchedule ( GNum_Macchine );
         delete Fprossimo;
         delete Ffunzioni;
         delete GArray_Job; //disalloco la memoria occupata dall'array dei job.
@@ -685,7 +685,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                 // TODO forse un casa sarebbe meglio
                 if ( k == 0 ) // prima macchina
                 {
-                    AggiungiSchedula (GMacch1_Sched,
+                    Schedula::AggiungiSchedula (GMacch1_Sched,
                                        pPerm[i],
                                        disponibilita[k],
                                        setup_vett[k] );
@@ -696,7 +696,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                 }
                 else if ( k == 1 ) // seconda macchina
                 {
-                    AggiungiSchedula (GMacch2_Sched,
+                    Schedula::AggiungiSchedula (GMacch2_Sched,
                                        pPerm[i],
                                        disponibilita[k],
                                        setup_vett[k] );
@@ -707,7 +707,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                 }
                 else	// terza macchina
                 {
-                    AggiungiSchedula (GMacch3_Sched,
+                    Schedula::AggiungiSchedula (GMacch3_Sched,
                                        pPerm[i],
                                        disponibilita[k],
                                        setup_vett[k] );
@@ -728,7 +728,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                     schedulato = 1; //setup di tipo minor
                     if ( k == 0 )	// schedulo sulla prima macchina
                     {
-                        AggiungiSchedula (GMacch1_Sched,
+                        Schedula::AggiungiSchedula (GMacch1_Sched,
                                            pPerm[i],
                                            disponibilita[k],
                                            setup_vett[k] );
@@ -739,7 +739,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                     }
                     else if ( k == 1 )	//schedulo sulla seconda macchina
                     {
-                        AggiungiSchedula (GMacch2_Sched,
+                        Schedula::AggiungiSchedula (GMacch2_Sched,
                                            pPerm[i],
                                            disponibilita[k],
                                            setup_vett[k] );
@@ -750,7 +750,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                     }
                     else	//schedulo sulla terza macchina
                     {
-                        AggiungiSchedula (GMacch3_Sched,
+                        Schedula::AggiungiSchedula (GMacch3_Sched,
                                            pPerm[i],
                                            disponibilita[k],
                                            setup_vett[k] );
@@ -768,7 +768,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                     {
                         if ( k == 0 )	// schedulo sulla prima macchina
                         {
-                            AggiungiSchedula (GMacch1_Sched,
+                            Schedula::AggiungiSchedula (GMacch1_Sched,
                                                pPerm[i],
                                                disponibilita[k],
                                                setup_vett[k] );
@@ -779,7 +779,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                         }
                         else if ( k == 1 )	// schedulo sulla seconda macchina
                         {
-                            AggiungiSchedula (GMacch2_Sched,
+                            Schedula::AggiungiSchedula (GMacch2_Sched,
                                                pPerm[i],
                                                disponibilita[k],
                                                setup_vett[k] );
@@ -791,7 +791,7 @@ int QRolloutThread::CostruisciEValutaSchedula (  TSchedula *pM1_Sch,
                         }
                         else	//schedulo sulla terza macchina
                         {
-                            AggiungiSchedula (GMacch3_Sched,
+                            Schedula::AggiungiSchedula (GMacch3_Sched,
                                                pPerm[i],
                                                disponibilita[k],
                                                setup_vett[k] );
@@ -1663,7 +1663,7 @@ TSchedula *QRolloutThread::Mossa ( TSchedula *pM_sch, TElem *pM, int pPos_Inizia
             i++;
         }
         VerificaMacchina ( schedula_di_lavoro,pM,disponibilita,setup_vett,0,job_temp,0 );
-        AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
+        Schedula::AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
         // 	a questo punto ho spostato il job nella posizione finale devo rischedulare gli altri
         // 	mi segno l'ID del job che ho spostato cos��?da poterlo saltare se lo re-incontro
         int ID_vietato = temp1->ID_job;
@@ -1699,7 +1699,7 @@ TSchedula *QRolloutThread::Mossa ( TSchedula *pM_sch, TElem *pM, int pPos_Inizia
                     i++;
                 }
                 VerificaMacchina ( schedula_di_lavoro,pM,disponibilita,setup_vett,0,job_temp,0 );
-                AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
+                Schedula::AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
                 tipo_predecessore = tipo;// il predecessore e' ora il job appena schedulato
             }
             temp1 = temp1->next;
@@ -1799,7 +1799,7 @@ TSchedula *QRolloutThread::Mossa ( TSchedula *pM_sch, TElem *pM, int pPos_Inizia
                 jj++;
             }
             VerificaMacchina ( schedula_di_lavoro,pM,disponibilita,setup_vett,0,job_temp,0 );
-            AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
+            Schedula::AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
             tipo_predecessore = tipo;// il predecessore e' ora il job appena schedulato
             temp1 = temp1->next;
         }
@@ -1814,7 +1814,7 @@ TSchedula *QRolloutThread::Mossa ( TSchedula *pM_sch, TElem *pM, int pPos_Inizia
             i++;
         }
         VerificaMacchina ( schedula_di_lavoro,pM,disponibilita,setup_vett,0,job_temp,0 );
-        AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
+        Schedula::AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
         tipo_predecessore = tipo_job_da_spostare;// il predecessore ��?ora il job appena schedulato
         while ( temp1!=NULL ) //aggiungo tutti gli altri
         {
@@ -1838,7 +1838,7 @@ TSchedula *QRolloutThread::Mossa ( TSchedula *pM_sch, TElem *pM, int pPos_Inizia
                 i++;
             }
             VerificaMacchina ( schedula_di_lavoro,pM,disponibilita,setup_vett,0,job_temp,0 );
-            AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
+            Schedula::AggiungiSchedula ( schedula_di_lavoro,job_temp[0],disponibilita[0],setup_vett[0] );
             tipo_predecessore = tipo;// il predecessore e' ora il job appena schedulato
             temp1 = temp1->next;
         }
@@ -1907,7 +1907,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
         i++;
     }
     // 	devo ora trovare il job con lateness maggiore
-    quaterna_migliore = ValutaSingolaSchedula ( pMacch_sch );
+    quaterna_migliore = Schedula::ValutaSingolaSchedula ( pMacch_sch );
     for ( j = 0; j < cont; j++ )
     {
         Lat_max = 0;
@@ -1940,7 +1940,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
             if ( pos!=0 )
             {
                 schedula_di_lavoro = Mossa ( pMacch_sch,pElem,pos,pos-1 );
-                quaterna_di_lavoro = ValutaSingolaSchedula ( schedula_di_lavoro );
+                quaterna_di_lavoro = Schedula::ValutaSingolaSchedula ( schedula_di_lavoro );
                 //dopo devo distruggerla
                 if ( quaterna_di_lavoro->Feasible>=quaterna_migliore->Feasible )
                 {
@@ -1966,7 +1966,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                             temp2 = temp1->next;
                             temp1 = temp2;
                         }
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_migliore;
                         delete quaterna_di_lavoro;
                         delete[] job_vett;
@@ -2008,7 +2008,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                             temp2           = temp1->next;
                             temp1           = temp2;
                         }
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_migliore;
                         delete quaterna_di_lavoro;
                         delete[] job_vett;
@@ -2018,14 +2018,14 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                     }
                     else
                     {
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_di_lavoro;
                     }
 
                 }
                 else
                 {//devo distruggere la shedula di lavoro
-                    EliminaSchedula ( schedula_di_lavoro );
+                    Schedula::EliminaSchedula ( schedula_di_lavoro );
                     delete quaterna_di_lavoro;
                 }
             }
@@ -2121,7 +2121,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
             if ( pos!=0 )
             {
                 schedula_di_lavoro = Mossa ( pMacch_sch,pElem,pos,pos_finale );
-                quaterna_di_lavoro = ValutaSingolaSchedula ( schedula_di_lavoro );
+                quaterna_di_lavoro = Schedula::ValutaSingolaSchedula ( schedula_di_lavoro );
                 //dopo devo distruggerla
                 if ( quaterna_di_lavoro->Feasible>=quaterna_migliore->Feasible )
                 {
@@ -2159,7 +2159,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                             temp2           = temp1->next;
                             temp1           = temp2;
                         }
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_migliore;
                         delete quaterna_di_lavoro;
                         delete[] job_vett;
@@ -2169,13 +2169,13 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                     }
                     else
                     {
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_di_lavoro;
                     }
                 }
                 else
                 {//devo distruggere la shedula di lavoro
-                    EliminaSchedula ( schedula_di_lavoro );
+                    Schedula::EliminaSchedula ( schedula_di_lavoro );
                     delete quaterna_di_lavoro;
                 }
             }
@@ -2252,7 +2252,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
             {
                 schedula_di_lavoro = Mossa ( pMacch_sch,pElem,pos,pos+1 );
 
-                quaterna_di_lavoro = ValutaSingolaSchedula ( schedula_di_lavoro );
+                quaterna_di_lavoro = Schedula::ValutaSingolaSchedula ( schedula_di_lavoro );
                 //dopo devo distruggerla
                 if ( quaterna_di_lavoro->Feasible>=quaterna_migliore->Feasible )
                 {
@@ -2290,7 +2290,7 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                             temp2 = temp1->next;
                             temp1 = temp2;
                         }
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_migliore;
                         delete quaterna_di_lavoro;
                         delete[] job_vett;
@@ -2300,13 +2300,13 @@ int QRolloutThread::VnsPerMacchina ( TSchedula *pMacch_sch,TElem *pElem )
                     }
                     else
                     {
-                        EliminaSchedula ( schedula_di_lavoro );
+                        Schedula::EliminaSchedula ( schedula_di_lavoro );
                         delete quaterna_di_lavoro;
                     }
                 }
                 else
                 {//devo distruggere la shedula di lavoro
-                    EliminaSchedula ( schedula_di_lavoro );
+                    Schedula::EliminaSchedula ( schedula_di_lavoro );
                     delete quaterna_di_lavoro;
                 }
             }
@@ -2409,8 +2409,8 @@ int QRolloutThread::BilanciamentoSchedule (TSchedula *pM1_Schedula,
                 VerificaMacchina ( vett_sch[pos],vett_indisp[pos],disponibilita,setup_vett,0,perm,0 );
                 if ( disponibilita[0] < vett_C_inizio[i] )
                 {
-                    AggiungiSchedula ( vett_sch[pos],perm[0],disponibilita[0],setup_vett[0] );
-                    TQuaterna *ris = ValutaSingolaSchedula ( vett_sch[pos] );
+                    Schedula::AggiungiSchedula ( vett_sch[pos],perm[0],disponibilita[0],setup_vett[0] );
+                    TQuaterna *ris = Schedula::ValutaSingolaSchedula ( vett_sch[pos] );
                     if ( ris->Feasible >=Ffeasible )
                     {
                         if
@@ -3399,7 +3399,7 @@ int QRolloutThread::QRolloutThreadInicialize(QString pFileConfig,
     GMacch2_Sched = NULL;
     GMacch3_Sched = NULL;
 
-    AzzeraSchedule(); //info nella funzione stessa
+    Schedula::AzzeraSchedule(); //info nella funzione stessa
 
     return 1;
 }
@@ -3492,215 +3492,216 @@ void QRolloutThread::Inizializza_Struttura_Euristiche(int tipo_eur)
         case 0:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneEdd_1Tipo;
+            Ffunzioni[0].funz = Heuristics::PermutazioneEdd_1Tipo;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 1:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneEdd_2Tipo;
+            Ffunzioni[0].funz = Heuristics::PermutazioneEdd_2Tipo;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 2:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneBase;
+            Ffunzioni[0].funz = Heuristics::PermutazioneBase;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 3:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneSPTSemplice;
+            Ffunzioni[0].funz = Heuristics::PermutazioneSPTSemplice;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 4:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLF;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLF;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 5:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneDelta_7ore;
+            Ffunzioni[0].funz = Heuristics::PermutazioneDelta_7ore;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 6:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneDeltaProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneDeltaProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 7:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneDeltaMezzoProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneDeltaMezzoProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 8:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLFDelta_7ore;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLFDelta_7ore;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 9:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLFDeltaProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLFDeltaProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 10:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = Permutazione_delta_24ore;
+            Ffunzioni[0].funz = Heuristics::Permutazione_delta_14ore;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 11:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneDelta_3ProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneDelta_3ProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 12:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLFDelta_14ore;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLFdelta_14ore;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 13:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLFDelta_3ProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLFDelta_3ProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 14:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneLLFDeltaMezzoProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneLLFDeltaMezzoProcMedio;
             Ffunzioni[0].ID_heur = 0;
             break;
         }
         case 15:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneDeltaProcMedio;
+            Ffunzioni[0].funz = Heuristics::PermutazioneDeltaProcMedio;
             Ffunzioni[0].ID_heur = 0;
             Ffunzioni[1].perc_utilizzo = 0;
-            Ffunzioni[1].funz = PermutazioneBase;
+            Ffunzioni[1].funz = Heuristics::PermutazioneBase;
             Ffunzioni[1].ID_heur = 1;
             break;
         }
         case 16:
         {
                 Ffunzioni[0].perc_utilizzo = 0;
-                Ffunzioni[0].funz = PermutazioneEdd_1Tipo;
+                Ffunzioni[0].funz = Heuristics::PermutazioneEdd_1Tipo;
                 Ffunzioni[0].ID_heur = 0;
                 Ffunzioni[1].perc_utilizzo = 0;
-                Ffunzioni[1].funz = PermutazioneEdd_2Tipo;
+                Ffunzioni[1].funz = Heuristics::PermutazioneEdd_2Tipo;
                 Ffunzioni[1].ID_heur = 0;
                 Ffunzioni[2].perc_utilizzo = 0;
-                Ffunzioni[2].funz = PermutazioneBase;
+                Ffunzioni[2].funz = Heuristics::PermutazioneBase;
                 Ffunzioni[2].ID_heur = 0;
                 Ffunzioni[3].perc_utilizzo = 0;
-                Ffunzioni[3].funz = PermutazioneSPTSemplice;
+                Ffunzioni[3].funz = Heuristics::PermutazioneSPTSemplice;
                 Ffunzioni[3].ID_heur = 0;
                 Ffunzioni[4].perc_utilizzo = 0;
-                Ffunzioni[4].funz = PermutazioneLLF;
+                Ffunzioni[4].funz = Heuristics::PermutazioneLLF;
                 Ffunzioni[4].ID_heur = 0;
                 Ffunzioni[5].perc_utilizzo = 0;
-                Ffunzioni[5].funz = PermutazioneDelta_7ore;
+                Ffunzioni[5].funz = Heuristics::PermutazioneDelta_7ore;
                 Ffunzioni[5].ID_heur = 0;
                 Ffunzioni[6].perc_utilizzo = 0;
-                Ffunzioni[6].funz = PermutazioneDeltaProcMedio;
+                Ffunzioni[6].funz = Heuristics::PermutazioneDeltaProcMedio;
                 Ffunzioni[6].ID_heur = 0;
                 Ffunzioni[7].perc_utilizzo = 0;
-                Ffunzioni[7].funz = PermutazioneDeltaMezzoProcMedio;
+                Ffunzioni[7].funz = Heuristics::PermutazioneDeltaMezzoProcMedio;
                 Ffunzioni[7].ID_heur = 0;
                 Ffunzioni[8].perc_utilizzo = 0;
-                Ffunzioni[8].funz = PermutazioneLLFDelta_7ore;
+                Ffunzioni[8].funz = Heuristics::PermutazioneLLFDelta_7ore;
                 Ffunzioni[8].ID_heur = 0;
                 Ffunzioni[9].perc_utilizzo = 0;
-                Ffunzioni[9].funz = PermutazioneLLFDeltaProcMedio;
+                Ffunzioni[9].funz = Heuristics::PermutazioneLLFDeltaProcMedio;
                 Ffunzioni[9].ID_heur = 0;
                 break;
         }
         case 17:
         {
             Ffunzioni[0].perc_utilizzo = 0;
-            Ffunzioni[0].funz = PermutazioneEdd_1Tipo;
+            Ffunzioni[0].funz = Heuristics::PermutazioneEdd_1Tipo;
             Ffunzioni[0].ID_heur = 0;
 
             Ffunzioni[1].perc_utilizzo = 0;
-            Ffunzioni[1].funz = PermutazioneEdd_2Tipo;
+            Ffunzioni[1].funz = Heuristics::PermutazioneEdd_2Tipo;
             Ffunzioni[1].ID_heur = 1;
 
             Ffunzioni[2].perc_utilizzo = 0;
-            Ffunzioni[2].funz = PermutazioneBase;
+            Ffunzioni[2].funz = Heuristics::PermutazioneBase;
             Ffunzioni[2].ID_heur = 2;
 
             Ffunzioni[3].perc_utilizzo = 0;
-            Ffunzioni[3].funz = PermutazioneSPTSemplice;
+            Ffunzioni[3].funz = Heuristics::PermutazioneSPTSemplice;
             Ffunzioni[3].ID_heur = 3;
 
             Ffunzioni[4].perc_utilizzo = 0;
-            Ffunzioni[4].funz = PermutazioneLLF;
+            Ffunzioni[4].funz = Heuristics::PermutazioneLLF;
             Ffunzioni[4].ID_heur = 4;
 
             Ffunzioni[5].perc_utilizzo = 0;
-            Ffunzioni[5].funz = PermutazioneDelta_7ore;
+            Ffunzioni[5].funz = Heuristics::PermutazioneDelta_7ore;
             Ffunzioni[5].ID_heur = 5;
 
             Ffunzioni[6].perc_utilizzo = 0;
-            Ffunzioni[6].funz = PermutazioneDeltaProcMedio;
+            Ffunzioni[6].funz = Heuristics::PermutazioneDeltaProcMedio;
             Ffunzioni[6].ID_heur = 6;
 
             Ffunzioni[7].perc_utilizzo = 0;
-            Ffunzioni[7].funz = PermutazioneDeltaMezzoProcMedio;
+            Ffunzioni[7].funz = Heuristics::PermutazioneDeltaMezzoProcMedio;
             Ffunzioni[7].ID_heur = 7;
 
             Ffunzioni[8].perc_utilizzo = 0;
-            Ffunzioni[8].funz = PermutazioneLLFDelta_7ore;
+            Ffunzioni[8].funz = Heuristics::PermutazioneLLFDelta_7ore;
             Ffunzioni[8].ID_heur = 8;
 
             Ffunzioni[9].perc_utilizzo = 0;
-            Ffunzioni[9].funz = PermutazioneLLFDeltaProcMedio;
+            Ffunzioni[9].funz = Heuristics::PermutazioneLLFDeltaProcMedio;
             Ffunzioni[9].ID_heur = 9;
 
             Ffunzioni[10].perc_utilizzo = 0;
-            Ffunzioni[10].funz = Permutazione_delta_24ore;
+            Ffunzioni[10].funz = Heuristics::Permutazione_delta_14ore;
             Ffunzioni[10].ID_heur = 10;
 
+
             Ffunzioni[11].perc_utilizzo = 0;
-            Ffunzioni[11].funz = PermutazioneDelta_3ProcMedio;
+            Ffunzioni[11].funz = Heuristics::PermutazioneDelta_3ProcMedio;
             Ffunzioni[11].ID_heur = 11;
 
             Ffunzioni[12].perc_utilizzo = 0;
-            Ffunzioni[12].funz = PermutazioneLLFDelta_14ore;
+            Ffunzioni[12].funz = Heuristics::PermutazioneLLFdelta_14ore;
             Ffunzioni[12].ID_heur = 12;
 
             Ffunzioni[13].perc_utilizzo = 0;
-            Ffunzioni[13].funz = PermutazioneLLFDelta_3ProcMedio;
+            Ffunzioni[13].funz = Heuristics::PermutazioneLLFDelta_3ProcMedio;
             Ffunzioni[13].ID_heur = 13;
 
             Ffunzioni[14].perc_utilizzo = 0;
-            Ffunzioni[14].funz = PermutazioneLLFDeltaMezzoProcMedio;
+            Ffunzioni[14].funz = Heuristics::PermutazioneLLFDeltaMezzoProcMedio;
             Ffunzioni[14].ID_heur = 14;
             //funzioni[15].perc_utilizzo = 0;
-            //funzioni[15].funz = permutazione_fittizia;
+            //funzioni[15].funz = Heuristics::permutazione_fittizia;
             //funzioni[15].ID_heur = 15;
             break;
         }
@@ -3853,13 +3854,14 @@ int QRolloutThread::Round(double pValue)
 //round up a double
 {
     double t;
+    double value;
     t = pValue - floor(pValue);
     if (t >= 0.5)
-        ceil(pValue);
+        value = ceil(pValue);
     else
-        floor(pValue);
+        value = floor(pValue);
 
-    return pValue;
+    return value;
 
 }
 

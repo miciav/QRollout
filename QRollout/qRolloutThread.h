@@ -1,6 +1,7 @@
 #ifndef QROLLOUT_H
 #define QROLLOUT_H
 
+#include "Euristiche.h"
 #include <time.h>
 #include <QThread>
 #include <QObject>
@@ -8,13 +9,13 @@
 #include <stdint.h>
 
 
-
-
-
-
+// questa funzione verifica ula disponibilita di una certa macchina.
 void VerificaMacchina(TSchedula *temp, TElem  *temp1, int *disponibilita, int *setup_vett,int p,TJob *perm,int i);
 
 
+/*
+ * Classe ti tipo thread che contiene la il backend del programma.
+*/
 class  QRolloutThread : public QThread {
 Q_OBJECT
 public:    
@@ -28,7 +29,7 @@ public:
     QStringList *GetListaPolitiche();
     //
 signals:
-    void ScriviASchermo(QString pTexto);
+    void ScriviASchermo(QString pTexto); //segnale per l'interfaccia
 
 private:
     TNext_Elem *Fprossimo;
@@ -92,6 +93,7 @@ private:
     void EliminaLista(TElem *pPunt_Lista);
     int CaricaListaJob(FILE * pIstanza);
 
+    // queste dichiarazioni rappresentano i tipi diversi di rollout implementati
     TJob *Rollout(int pForce);
     TJob *Rollout_Old(int pForce);
     TJob *Rollout_Modificato1(int pForce);
@@ -104,6 +106,8 @@ private:
     TJob *Rollout_Heuristic_Pruning(int pForce);
     TJob *Rollout_Dynamic_Job_Choosing ( int pForce);
     TJob *Rollout_Dynamic ( int pForce );
+
+
     int64_t GetCpuTime(void);
     int Round(double pValue);
 

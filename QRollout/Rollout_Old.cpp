@@ -91,13 +91,13 @@ TJob *QRolloutThread::Rollout_Old ( int force )
                 M2_sch_buffer = new TSchedula;
                 M3_sch_buffer = new TSchedula;
 
-                CopiaSchedule ( GMacch1_Sched, M1_sch_buffer );
+                Schedula::CopiaSchedule ( GMacch1_Sched, M1_sch_buffer );
 
                 if ( GNum_Macchine >= 2 )
-                    CopiaSchedule ( GMacch2_Sched, M2_sch_buffer );
+                    Schedula::CopiaSchedule ( GMacch2_Sched, M2_sch_buffer );
 
                 if ( GNum_Macchine == 3 )
-                    CopiaSchedule ( GMacch3_Sched, M3_sch_buffer );
+                    Schedula::CopiaSchedule ( GMacch3_Sched, M3_sch_buffer );
 
                 VNS (M1_sch_buffer,
                      M2_sch_buffer,
@@ -112,12 +112,12 @@ TJob *QRolloutThread::Rollout_Old ( int force )
                                  M3_sch_buffer,
                                  prossimo1 );
 
-                EliminaSchedula ( M1_sch_buffer );
+                Schedula::EliminaSchedula ( M1_sch_buffer );
                 if ( GNum_Macchine >= 2 )
-                    EliminaSchedula ( M2_sch_buffer );
+                    Schedula::EliminaSchedula ( M2_sch_buffer );
 
                 if ( GNum_Macchine == 3 )
-                    EliminaSchedula ( M3_sch_buffer );
+                    Schedula::EliminaSchedula ( M3_sch_buffer );
 
                 TNext_Elem *tmp_prox;
                 tmp_prox = prossimo;

@@ -25,7 +25,7 @@
 using namespace std;
 
 
-int CalcolaProcTimeMedio(void)
+int Heuristics::CalcolaProcTimeMedio(void)
 {
 //     questa funzione calcola il proc. time medio
 
@@ -38,13 +38,13 @@ int CalcolaProcTimeMedio(void)
     return temp;
 }
 
-void InizializzaPermutazioneMigliore(TJob *pPerm)
+void Heuristics::InizializzaPermutazioneMigliore(TJob *pPerm)
 {
     for(int i = 0; i < GNum_Job; i++)
         pPerm[i] = GArray_Job[i];
 }
 
-TTipo_New CaricaTempo(TSchedula *pM_sch, TElem *pM)
+TTipo_New Heuristics::CaricaTempo(TSchedula *pM_sch, TElem *pM)
 {
     TTipo_New temp;
     int fine = 0;
@@ -87,7 +87,7 @@ TTipo_New CaricaTempo(TSchedula *pM_sch, TElem *pM)
 /* all'interno di un periodo di indisponibilita' ed in tal caso */
 /* restituisce l'estremo superiore di tale periodo		*/
 /****************************************************************/
-int TrovaEdgeIndisp(TElem *M,int minimum)
+int Heuristics::TrovaEdgeIndisp(TElem *M,int minimum)
 {
     TElem *temp = NULL;
     temp = M;
@@ -103,7 +103,7 @@ int TrovaEdgeIndisp(TElem *M,int minimum)
 
 }
 
-int AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_locali)
+int Heuristics::AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_locali)
 {
 
     TTipo_New tempo[3];
@@ -559,7 +559,7 @@ int AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_lo
                                         jj++;
                                     }
                                     VerificaMacchina(schedule_locali[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                                    AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
+                                    Schedula::AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set[i];
                                     delete(indisp);
                                     delete(deadline_vett);
@@ -605,7 +605,7 @@ int AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_lo
                                 jj++;
                             }
                             VerificaMacchina(schedule_locali[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                            AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
+                            Schedula::AggiungiSchedula(schedule_locali[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set[i];
                             delete(indisp);
                             delete(deadline_vett);
@@ -682,7 +682,7 @@ int AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_lo
         j++;
     }
     VerificaMacchina(schedule_locali[pos_k],indisp[pos_k],disponibilita,setup_vett,0,perm,0);
-    AggiungiSchedula(schedule_locali[pos_k],perm[0],disponibilita[0],setup_vett[0]);
+    Schedula::AggiungiSchedula(schedule_locali[pos_k],perm[0],disponibilita[0],setup_vett[0]);
     kk = set_matrix[pos_i][pos_k];
     delete(indisp);
     delete(deadline_vett);
@@ -702,7 +702,7 @@ int AggiungiJobPerm (TJob1 *array_job_locale,int dim_job,TSchedula **schedule_lo
     return kk;
 
 }
-int AggiungiJobPermDelta (TJob1 *pArray_jobs,
+int Heuristics::AggiungiJobPermDelta (TJob1 *pArray_jobs,
                           int pDimJob,
                           TSchedula **pArraySchedule,
                           int pDelta)
@@ -796,12 +796,12 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
         tipo_job_nothing[i] = -1;
     }
 
-    tempo[0] = CaricaTempo(pArraySchedule[0],GMacch1);//carica gli starting time disponibili
+    tempo[0] = Heuristics::CaricaTempo(pArraySchedule[0],GMacch1);//carica gli starting time disponibili
     if(GNum_Macchine >= 2)
-        tempo[1] = CaricaTempo(pArraySchedule[1],GMacch2);
+        tempo[1] = Heuristics::CaricaTempo(pArraySchedule[1],GMacch2);
 
     if (GNum_Macchine == 3)
-        tempo[2] = CaricaTempo(pArraySchedule[2],GMacch3);
+        tempo[2] = Heuristics::CaricaTempo(pArraySchedule[2],GMacch3);
 
     // 	ora conosco i tempi minimi di schedulazione sulle singole macchine
     // 	a questo punto devo solo cercare il minimo di questi tempi e dato questo stabilire il set di job con release dete
@@ -925,7 +925,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
     if(fine == 0)
     {
         for(i = 0; i < GNum_Macchine; i++)
-            tempi_ind[i] = TrovaEdgeIndisp(indisp[i],minimum_alternativo);
+            tempi_ind[i] = Heuristics::TrovaEdgeIndisp(indisp[i],minimum_alternativo);
 
 
         minimum_alternativo2=tempi_ind[0];
@@ -1215,7 +1215,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                         jj++;
                                     }
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                                    AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                                    Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_deadline[i];
                                     delete(deadline_vett);
                                     delete(duedate_vett);
@@ -1266,7 +1266,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 jj++;
                             }
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                            AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                            Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_deadline[i];
                             delete(deadline_vett);
                             delete(duedate_vett);
@@ -1335,7 +1335,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                         j1++;
                                     }
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                                    AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                                    Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_duedate[i];
                                     delete(deadline_vett);
                                     delete(duedate_vett);
@@ -1388,7 +1388,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 jj++;
                             }
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                            AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                            Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_duedate[i];
                             delete(deadline_vett);
                             delete(duedate_vett);
@@ -1457,7 +1457,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                         j1++;
                                     }
                                     VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                                    AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                                    Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                                     kk = set_nothing[i];
                                     delete(deadline_vett);
                                     delete(duedate_vett);
@@ -1509,7 +1509,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
                                 jj++;
                             }
                             VerificaMacchina(pArraySchedule[k],indisp[k],disponibilita,setup_vett,0,perm,0);
-                            AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
+                            Schedula::AggiungiSchedula(pArraySchedule[k],perm[0],disponibilita[0],setup_vett[0]);
                             kk = set_nothing[i];
                             delete(deadline_vett);
                             delete(duedate_vett);
@@ -1585,7 +1585,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
         jj++;
     }
     VerificaMacchina(pArraySchedule[pos_k],indisp[pos_k],disponibilita,setup_vett,0,perm,0);
-    AggiungiSchedula(pArraySchedule[pos_k],perm[0],disponibilita[0],setup_vett[0]);
+    Schedula::AggiungiSchedula(pArraySchedule[pos_k],perm[0],disponibilita[0],setup_vett[0]);
     kk = set_matrix[pos_i][pos_k];
     delete(deadline_vett);
     delete(duedate_vett);
@@ -1613,7 +1613,7 @@ int AggiungiJobPermDelta (TJob1 *pArray_jobs,
 
 //********************************************************************************************
 //********************************************************************************************
-TJob *PermutazioneEdd_1Tipo ( TJob *pArray_job_attuale,int pDim_job )
+TJob *Heuristics::PermutazioneEdd_1Tipo ( TJob *pArray_job_attuale,int pDim_job )
 {
     //questa funzione costruira' una nuova perm di job utilizzando la regola EDD in particolare
     // verranno schedulati prima i job con deadline + vicina e poi quelli che hanno sono duedate
@@ -1752,7 +1752,7 @@ TJob *PermutazioneEdd_1Tipo ( TJob *pArray_job_attuale,int pDim_job )
     return permutation;
 }
 
-TJob *PermutazioneEdd_2Tipo ( TJob *pArray_Job_Attuale,int pDim_Job )
+TJob *Heuristics::PermutazioneEdd_2Tipo ( TJob *pArray_Job_Attuale,int pDim_Job )
 {
     //questa funzione costruira' una nuova perm di job utilizzando la regola EDD in particolare
     // verranno schedulati prima i job con deadline o duedate + vicina
@@ -1843,7 +1843,7 @@ TJob *PermutazioneEdd_2Tipo ( TJob *pArray_Job_Attuale,int pDim_Job )
     delete[] vett_max_dd_dl;
     return perm1;
 }
-TJob *PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
+TJob *Heuristics::PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' l'euristica di base presentata nella tesi di Ritota
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -1869,16 +1869,16 @@ TJob *PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[pDimJob];
     //inizializzo le schedule locali
-    CopiaSchedule(GMacch1_Sched,M1_sch_locale);// fa una copia di M1_sch in M1_sch_locale
+    Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);// fa una copia di M1_sch in M1_sch_locale
     schedule_locali[0] = M1_sch_locale;
     if(GNum_Macchine >= 2)
     {
-        CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+        Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
         schedule_locali[1] = M2_sch_locale;
     }
     if(GNum_Macchine == 3)
     {
-        CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+        Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
         schedule_locali[2] = M3_sch_locale;
     }
 // ________________________________________________________________________________
@@ -1900,7 +1900,7 @@ TJob *PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
     i=0;
     while (i<pDimJob)// fin quando non ho schedulato tutti i job
     {
-        temp = AggiungiJobPerm(array_job_locale,pDimJob,schedule_locali);
+        temp = Heuristics::AggiungiJobPerm(array_job_locale,pDimJob,schedule_locali);
 
         k = 0;
         while(k < pDimJob)
@@ -1927,11 +1927,11 @@ TJob *PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
 // ____________________________________________________________________________________
 	
 //devo ora liberare lo spazio delle schedule locali
-        EliminaSchedula(M1_sch_locale);
+        Schedula::EliminaSchedula(M1_sch_locale);
         if(GNum_Macchine >= 2)
-            EliminaSchedula(M2_sch_locale);
+            Schedula::EliminaSchedula(M2_sch_locale);
         if(GNum_Macchine == 3)
-            EliminaSchedula(M3_sch_locale);
+            Schedula::EliminaSchedula(M3_sch_locale);
 
         delete(schedule_locali);
         delete(array_job_locale);
@@ -1939,7 +1939,7 @@ TJob *PermutazioneBase(TJob *pArray_Job_Attuale, int pDimJob)
 
 }
 
-TJob *PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
+TJob *Heuristics::PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -1962,16 +1962,16 @@ TJob *PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
     schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[pDimJob];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2011,18 +2011,18 @@ TJob *PermutazioneDelta_10(TJob *pArray_Job_Attuale, int pDimJob)
 	i++;	
     }
 	//devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
+TJob *Heuristics::PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2045,16 +2045,16 @@ TJob *PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[pDimJob];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2094,18 +2094,18 @@ TJob *PermutazioneDelta_15(TJob *pArray_Job_Attuale, int pDimJob)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_20(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_20(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2127,16 +2127,16 @@ TJob *PermutazioneDelta_20(TJob *array_job_attuale, int dim_job)
         schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2179,18 +2179,18 @@ TJob *PermutazioneDelta_20(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
 
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_25(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_25(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2214,16 +2214,16 @@ TJob *PermutazioneDelta_25(TJob *array_job_attuale, int dim_job)
     schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2263,18 +2263,18 @@ TJob *PermutazioneDelta_25(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *Permutazione_delta_30(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::Permutazione_delta_30(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2297,16 +2297,16 @@ TJob *Permutazione_delta_30(TJob *array_job_attuale, int dim_job)
     schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2346,18 +2346,18 @@ TJob *Permutazione_delta_30(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_35(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_35(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2380,16 +2380,16 @@ TJob *PermutazioneDelta_35(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2429,18 +2429,18 @@ TJob *PermutazioneDelta_35(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_40(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_40(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2463,16 +2463,16 @@ TJob *PermutazioneDelta_40(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2512,18 +2512,18 @@ TJob *PermutazioneDelta_40(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_50(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_50(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2547,16 +2547,16 @@ TJob *PermutazioneDelta_50(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2596,18 +2596,18 @@ TJob *PermutazioneDelta_50(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *Permutazione_delta_24ore(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::Permutazione_delta_14ore(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale;
     int i= 0;
@@ -2629,16 +2629,16 @@ TJob *Permutazione_delta_24ore(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2678,18 +2678,18 @@ TJob *Permutazione_delta_24ore(TJob *array_job_attuale, int dim_job)
         i++;  
     }
    //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_7ore(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_7ore(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2713,16 +2713,16 @@ TJob *PermutazioneDelta_7ore(TJob *array_job_attuale, int dim_job)
     schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2762,18 +2762,18 @@ TJob *PermutazioneDelta_7ore(TJob *array_job_attuale, int dim_job)
         i++;  
     }
    //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneFittizia(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneFittizia(TJob *array_job_attuale, int dim_job)
 {//questa euristica costruisce la permutazione in base al proc_time del job
     TJob *perm1;
     perm1 = new TJob[dim_job];
@@ -2794,7 +2794,7 @@ TJob *PermutazioneFittizia(TJob *array_job_attuale, int dim_job)
     }
     return perm1;
 }
-TJob *PermutazioneDelta_3(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_3(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i = 0;
@@ -2816,16 +2816,16 @@ TJob *PermutazioneDelta_3(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2865,18 +2865,18 @@ TJob *PermutazioneDelta_3(TJob *array_job_attuale, int dim_job)
         i++;
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_5(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_5(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2898,16 +2898,16 @@ TJob *PermutazioneDelta_5(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -2947,18 +2947,18 @@ TJob *PermutazioneDelta_5(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_2(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_2(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i= 0;
@@ -2980,16 +2980,16 @@ TJob *PermutazioneDelta_2(TJob *array_job_attuale, int dim_job)
     schedule_locali=new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -3029,11 +3029,11 @@ TJob *PermutazioneDelta_2(TJob *array_job_attuale, int dim_job)
 	i++;	
     }
     //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
@@ -3042,7 +3042,7 @@ TJob *PermutazioneDelta_2(TJob *array_job_attuale, int dim_job)
 }
 
 /*Euristiche di tipo LLF con o senza delta*/
-TJob *PermutazioneLLFDeltaBasica(TJob *pArray_job_attuale, int pDim_job,int pDelta)
+TJob *Heuristics::PermutazioneLLFDeltaBasica(TJob *pArray_job_attuale, int pDim_job,int pDelta)
 {
 
     TElem **vett_indisp = new TElem*[GNum_Macchine];
@@ -3081,18 +3081,18 @@ TJob *PermutazioneLLFDeltaBasica(TJob *pArray_job_attuale, int pDim_job,int pDel
     //inizializzo le schedule locali
     {
         M1_sch_locale = new TSchedula;
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine>=2)
         {
             M2_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
             M3_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -3276,17 +3276,17 @@ TJob *PermutazioneLLFDeltaBasica(TJob *pArray_job_attuale, int pDim_job,int pDel
             perm[0].duedate     = pArray_job_attuale[coppia[0]].deadline;
             perm[0].priority    = pArray_job_attuale[coppia[0]].priority;
             perm[0].rel_time    = pArray_job_attuale[coppia[0]].rel_time;
-            AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
+            Schedula::AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
             kk++;
         }
     }
 
     /*Elimino le schedule locali*/
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine>=2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     for(i = 0;i < pDim_job;i++)
     {
@@ -3308,7 +3308,7 @@ TJob *PermutazioneLLFDeltaBasica(TJob *pArray_job_attuale, int pDim_job,int pDel
     delete[] array_job_locale;
     return perm1;
 }
-TJob *PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
+TJob *Heuristics::PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
 {
     // euristica LLF largest Lateness First
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
@@ -3353,18 +3353,18 @@ TJob *PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
 
     {
         M1_sch_locale = new TSchedula;
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
             M2_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
             M3_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -3558,7 +3558,7 @@ TJob *PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
             perm[0].duedate = pArray_job_attuale[coppia[0]].deadline;
             perm[0].priority = pArray_job_attuale[coppia[0]].priority;
             perm[0].rel_time = pArray_job_attuale[coppia[0]].rel_time;
-            AggiungiSchedula(schedule_locali[coppia[1]],
+            Schedula::AggiungiSchedula(schedule_locali[coppia[1]],
                               perm[0],
                               disponibilita[coppia[0]][coppia[1]],
                               vett_setup[coppia[0]][coppia[1]]);
@@ -3567,11 +3567,11 @@ TJob *PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
     }
 
 
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
 
     for(i=0;i< pDim_job;i++)
@@ -3595,35 +3595,35 @@ TJob *PermutazioneLLF(TJob *pArray_job_attuale, int pDim_job)
     delete[] array_job_locale;
     return perm1;
 }
-TJob *PermutazioneLLFDelta_2(TJob *pArray_Job_Attuale, int pDim_Job)
+TJob *Heuristics::PermutazioneLLFDelta_2(TJob *pArray_Job_Attuale, int pDim_Job)
 {
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
     // tra quelli equivalenti si scegliera' il job con ending time + basso
     int delta = 2;
     return PermutazioneLLFDeltaBasica(pArray_Job_Attuale, pDim_Job,delta);
 }
-TJob *PermutazioneLLFDelta_5(TJob *pArray_Job_Attuale, int pDim_Job)
+TJob *Heuristics::PermutazioneLLFDelta_5(TJob *pArray_Job_Attuale, int pDim_Job)
 {
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
     // tra quelli equivalenti si scegliera' il job con ending time + basso
     int delta = 5;
     return PermutazioneLLFDeltaBasica(pArray_Job_Attuale, pDim_Job,delta);
 }
-TJob *PermutazioneLLFDelta_10(TJob *pArray_Job_Attuale, int pDim_Job)
+TJob *Heuristics::PermutazioneLLFDelta_10(TJob *pArray_Job_Attuale, int pDim_Job)
 {
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
     // tra quelli equivalenti si scegliera' il job con ending time + basso
     int delta = 10;
     return PermutazioneLLFDeltaBasica(pArray_Job_Attuale, pDim_Job,delta);
 }
-TJob *PermutazioneLLFDelta_7ore(TJob *pArray_Job_Attuale, int pDim_Job)
+TJob *Heuristics::PermutazioneLLFDelta_7ore(TJob *pArray_Job_Attuale, int pDim_Job)
 {
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
     // tra quelli equivalenti si scegliera' il job con ending time + basso
     int delta = 420;
     return PermutazioneLLFDeltaBasica(pArray_Job_Attuale, pDim_Job,delta);
 }
-TJob *PermutazioneLLFDelta_14ore(TJob *pArray_Job_Attuale, int pDim_Job)
+TJob *Heuristics::PermutazioneLLFdelta_14ore(TJob *pArray_Job_Attuale,int pDim_Job)
 {
     // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
     // tra quelli equivalenti si scegliera' il job con ending time + basso
@@ -3631,7 +3631,7 @@ TJob *PermutazioneLLFDelta_14ore(TJob *pArray_Job_Attuale, int pDim_Job)
     return PermutazioneLLFDeltaBasica(pArray_Job_Attuale, pDim_Job,delta);
 
 }
-TJob *PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
 {
 // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
 // tra quelli equivalenti si scegliera'il job con ending time + basso
@@ -3649,7 +3649,7 @@ TJob *PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
     int **disponibilita = NULL;
     int **scelti        = NULL;
     int *vett_max_Lat =  NULL;
-    delta = 3*CalcolaProcTimeMedio();
+    delta = 3*Heuristics::CalcolaProcTimeMedio();
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -3677,18 +3677,18 @@ TJob *PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
     array_job_locale=new TJob1[dim_job];
     {//inizializzo le schedule locali
         M1_sch_locale = new TSchedula;
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine>=2)
         {
             M2_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
             M3_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -3866,15 +3866,15 @@ TJob *PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
             perm[0].duedate= array_job_attuale[coppia[0]].deadline;
             perm[0].priority= array_job_attuale[coppia[0]].priority;
             perm[0].rel_time= array_job_attuale[coppia[0]].rel_time;
-            AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
+            Schedula::AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
             kk++;
         }
     }
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine>=2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     for(i = 0;i < dim_job;i++)
     {
@@ -3897,7 +3897,7 @@ TJob *PermutazioneLLFDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
     return perm1;
 
 }
-TJob *PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
 {
 // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
 // tra quelli equivalenti si sceglier��?il job con ending time + basso
@@ -3914,7 +3914,7 @@ TJob *PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
     int **disponibilita = NULL;
     int **scelti = NULL;
     int *vett_max_Lat = NULL;
-    delta = CalcolaProcTimeMedio();
+    delta = Heuristics::CalcolaProcTimeMedio();
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -3942,18 +3942,18 @@ TJob *PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
     array_job_locale = new TJob1[dim_job];
     {//inizializzo le schedule locali
         M1_sch_locale = new TSchedula;
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
             M2_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
             M3_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -4131,15 +4131,15 @@ TJob *PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
             perm[0].duedate= array_job_attuale[coppia[0]].deadline;
             perm[0].priority= array_job_attuale[coppia[0]].priority;
             perm[0].rel_time= array_job_attuale[coppia[0]].rel_time;
-            AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
+            Schedula::AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
             kk++;
         }
     }
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine>=2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     for(i = 0;i < dim_job;i++)
     {
@@ -4162,7 +4162,7 @@ TJob *PermutazioneLLFDeltaProcMedio(TJob *array_job_attuale, int dim_job)
     return perm1;
 
 }
-TJob *PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
 {
 // per ogni macchina verifico ogni job e poi scelgo quello con lateness + alta
 // tra quelli equivalenti si sceglier��?il job con ending time + basso
@@ -4179,7 +4179,7 @@ TJob *PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
     int **disponibilita = NULL;
     int **scelti        = NULL;
     int *vett_max_Lat   = NULL;
-    delta = ceil((float)CalcolaProcTimeMedio()/2);
+    delta = ceil((float)Heuristics::CalcolaProcTimeMedio()/2);
     vett_max_Lat    = new int[dim_job];
     disponibilita   = new int*[dim_job];
     vett_Lat        = new int*[dim_job];
@@ -4207,18 +4207,18 @@ TJob *PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
     array_job_locale=new TJob1[dim_job];
     {//inizializzo le schedule locali
         M1_sch_locale = new TSchedula;
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine>=2)
         {
             M2_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
             M3_sch_locale = new TSchedula;
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -4397,15 +4397,15 @@ TJob *PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
             perm[0].duedate= array_job_attuale[coppia[0]].deadline;
             perm[0].priority= array_job_attuale[coppia[0]].priority;
             perm[0].rel_time= array_job_attuale[coppia[0]].rel_time;
-            AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
+            Schedula::AggiungiSchedula(schedule_locali[coppia[1]],perm[0],disponibilita[coppia[0]][coppia[1]],vett_setup[coppia[0]][coppia[1]]);
             kk++;
         }
     }
-    EliminaSchedula(M1_sch_locale);
+   Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine>=2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     for(i = 0;i < dim_job;i++)
     {
@@ -4429,7 +4429,7 @@ TJob *PermutazioneLLFDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
 
 }
 
-TJob *PermutazioneSPTSemplice(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneSPTSemplice(TJob *array_job_attuale, int dim_job)
 {//questa euristica costruisce la permutazione in base al proc_time del job
     int *proc_time_vett = NULL;
     proc_time_vett = new int[dim_job];
@@ -4477,7 +4477,7 @@ TJob *PermutazioneSPTSemplice(TJob *array_job_attuale, int dim_job)
     delete(proc_time_vett);
     return perm1;
 }
-TJob *PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale = NULL;
     int i = 0;
@@ -4491,7 +4491,7 @@ TJob *PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
     int k = 0;
 
     array_job_locale=new TJob1[dim_job];
-    Delta = ceil((float)CalcolaProcTimeMedio()/2);
+    Delta = ceil((float)Heuristics::CalcolaProcTimeMedio()/2);
 
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
@@ -4502,16 +4502,16 @@ TJob *PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -4551,18 +4551,18 @@ TJob *PermutazioneDeltaMezzoProcMedio(TJob *array_job_attuale, int dim_job)
         i++;
     }
    //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale;
 
@@ -4576,7 +4576,7 @@ TJob *PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_job)
     TJob * perm1 = NULL;
     int k = 0;
     array_job_locale=new TJob1[dim_job];
-    Delta = CalcolaProcTimeMedio();
+    Delta = Heuristics::CalcolaProcTimeMedio();
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
         M2_sch_locale = new TSchedula;
@@ -4585,16 +4585,16 @@ TJob *PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -4634,18 +4634,18 @@ TJob *PermutazioneDeltaProcMedio(TJob *array_job_attuale, int dim_job)
         i++;
     }
    //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
     return perm1;
 
 }
-TJob *PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
+TJob *Heuristics::PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
 {//questa e' un'euristica basata sul concetto di Delta
     TJob1 *array_job_locale;
     int i = 0;
@@ -4658,7 +4658,7 @@ TJob *PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
     TJob * perm1 = NULL;
     int k = 0;
 
-    Delta = 3*CalcolaProcTimeMedio();
+    Delta = 3*Heuristics::CalcolaProcTimeMedio();
     array_job_locale=new TJob1[dim_job];
     M1_sch_locale = new TSchedula;// tali schedule contengono almeno un elemento nullo
     if(GNum_Macchine >= 2)
@@ -4668,16 +4668,16 @@ TJob *PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
     schedule_locali = new TSchedula*[GNum_Macchine];
     perm1 = new TJob[dim_job];
     {//inizializzo le schedule locali
-        CopiaSchedule(GMacch1_Sched,M1_sch_locale);
+        Schedula::CopiaSchedule(GMacch1_Sched,M1_sch_locale);
         schedule_locali[0] = M1_sch_locale;
         if(GNum_Macchine >= 2)
         {
-            CopiaSchedule(GMacch2_Sched,M2_sch_locale);
+            Schedula::CopiaSchedule(GMacch2_Sched,M2_sch_locale);
             schedule_locali[1] = M2_sch_locale;
         }
         if(GNum_Macchine == 3)
         {
-            CopiaSchedule(GMacch3_Sched,M3_sch_locale);
+            Schedula::CopiaSchedule(GMacch3_Sched,M3_sch_locale);
             schedule_locali[2] = M3_sch_locale;
         }
     }
@@ -4717,11 +4717,11 @@ TJob *PermutazioneDelta_3ProcMedio(TJob *array_job_attuale, int dim_job)
         i++;
     }
    //devo ora liberare lo spazio delle schedule locali
-    EliminaSchedula(M1_sch_locale);
+    Schedula::EliminaSchedula(M1_sch_locale);
     if(GNum_Macchine >= 2)
-        EliminaSchedula(M2_sch_locale);
+        Schedula::EliminaSchedula(M2_sch_locale);
     if(GNum_Macchine == 3)
-        EliminaSchedula(M3_sch_locale);
+        Schedula::EliminaSchedula(M3_sch_locale);
 
     delete(schedule_locali);
     delete(array_job_locale);
